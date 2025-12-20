@@ -3,9 +3,7 @@
   --text: #111114;
   --muted: #555560;
   --muted-weak: #9a9aa3;
-  --border: #e8e8ef;
   --underline: rgba(17, 17, 20, 0.1);
-  --icon-weak: #555560;
 }
 
 * { box-sizing: border-box; }
@@ -121,10 +119,6 @@ main {
   border-radius: 0;
 }
 
-.project-item.is-animating .project-preview {
-  content: none !important;
-}
-
 /* Mobile image switching */
 @media (max-width: 768px) {
   .project-item:nth-child(1) .project-preview {
@@ -135,9 +129,6 @@ main {
   }
   .project-item:nth-child(3) .project-preview {
     content: url('assets/Calendar-mobile.png');
-  }
-  .project-item.is-animating .project-preview {
-    content: none !important;
   }
 }
 
