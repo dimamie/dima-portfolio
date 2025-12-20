@@ -94,7 +94,7 @@ main {
   font-weight: 400;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0;
 }
 
 .header-icon {
@@ -103,6 +103,8 @@ main {
   display: inline-block;
   vertical-align: middle;
   align-self: center;
+  margin-left: 0.5rem;
+  margin-right: 0.25rem;
 }
 
 .header-current a {
