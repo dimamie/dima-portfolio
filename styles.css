@@ -1,0 +1,557 @@
+:root {
+  --bg: #ffffff;
+  --text: #111114;
+  --muted: #555560;
+  --muted-weak: #9a9aa3;
+  --border: #e8e8ef;
+  --underline: rgba(17, 17, 20, 0.1);
+  --icon-weak: #555560;
+}
+
+* { box-sizing: border-box; }
+html, body { 
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+.container {
+  width: 70vw;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
+}
+
+
+
+/* Hero */
+.hero {
+  background: var(--bg);
+}
+.hero .container { 
+  padding-top: clamp(32px, 4vw, 64px);
+  padding-bottom: 0;
+  padding-right: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero .hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1;
+}
+.hero .hero-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.hero .hero-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.hero .hero-title {
+  font-size: clamp(60px, 15vw, 180px);
+  line-height: 0.8;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  opacity: 1;
+  transform: translateX(0);
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Hero Right Column */
+.hero .hero-right {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+/* Desktop: social links snug (old spacing) */
+.hero .hero-social-link + .hero-social-link {
+  margin-top: 0;
+}
+
+@media (min-width: 701px) {
+  /* Desktop spacing between hero social links */
+  .hero .hero-social-link + .hero-social-link {
+    margin-top: 4px;
+  }
+}
+
+.hero .hero-avatars {
+  width: auto;
+  height: 48px;
+  max-width: none;
+}
+
+.hero .hero-services-text {
+  font-size: 24px;
+  color: var(--text);
+  margin: 0 0 0 0;
+  text-transform: lowercase;
+  text-align: left;
+  letter-spacing: -0.03em;
+  line-height: 1.7;
+}
+
+.hero .hero-social-link {
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  border-bottom: 2px solid var(--underline);
+  padding-bottom: 0.2em;
+  text-align: left;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hero .hero-social-link .at { color: var(--muted-weak); }
+
+.hero .hero-social-link:hover {
+  opacity: 0.7;
+}
+.hero-mark {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Projects Row - ACTIVE */
+.projects-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(0.5rem, 1vw, 1rem);
+  width: 100%;
+  margin-top: 4rem; /* Larger gap from hero section on desktop */
+  margin-bottom: 48px; /* Gap to about section */
+  padding-left: clamp(1rem, 3vw, 2rem); /* Left padding */
+  padding-right: clamp(2rem, 5vw, 4rem); /* More right padding */
+}
+
+/* When all projects are in one row, first project is bigger */
+@media (min-width: 1100px) {
+  .projects-row {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.projects-row .project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: auto;
+}
+
+.projects-row .project-item:nth-child(2) {
+  margin-top: 5rem;
+}
+
+.projects-row .project-image {
+  width: 100%;
+  height: clamp(400px, 70vh, 800px);
+  overflow: visible;
+  position: relative;
+}
+
+.projects-row .project-item:last-child .project-image {
+  height: 350px;
+}
+
+.projects-row .project-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  border-radius: 0;
+}
+
+/* Override content property when animating (prevents CSS from interfering) */
+.project-item.is-animating .project-preview {
+  content: none !important;
+}
+
+
+/* Mobile image switching */
+@media (max-width: 768px) {
+  .project-item:nth-child(1) .project-preview {
+    content: url('assets/Thankyoutshirt.png');
+  }
+  .project-item:nth-child(2) .project-preview {
+    content: url('assets/App-mobile.png');
+  }
+  .project-item:nth-child(3) .project-preview {
+    content: url('assets/Calendar-mobile.png');
+  }
+  /* Override content property when animating */
+  .project-item.is-animating .project-preview {
+    content: none !important;
+  }
+}
+
+
+.projects-row .project-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.projects-row .project-badge {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.1rem;
+}
+
+.projects-row .project-name {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.projects-row .project-category {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* About */
+.about { padding: 48px 0; }
+.about-intro {
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.2;
+  margin: 0 0 32px 0;
+  max-width: 60vw;
+  letter-spacing: -0.03em;
+}
+/* inline icon in about intro */
+.about-intro .inline-marker, .contact-intro .inline-marker {
+  width: 1.125em;
+  height: 1.125em;
+  vertical-align: middle;
+  display: inline-block;
+}
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0rem;
+  margin-bottom: 48px;
+}
+.about-header .hero-services {
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text);
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+}
+.about-header .hero-email {
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  border-bottom: 2px solid var(--underline);
+  padding-bottom: 0.2em;
+  letter-spacing: -0.03em;
+}
+.about-header .hero-email:hover {
+  opacity: 0.7;
+}
+
+.about-avatars {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.avatar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+}
+.avatar-name {
+  margin: 0;
+  font-size: 24px;
+  color: black;
+  letter-spacing: -0.03em;
+}
+.avatar {
+  width: clamp(48px, 8vw, 80px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Contact */
+.contact {
+  padding: 48px 0;
+}
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.spotify-widget {
+  margin-top: 64px;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: -0.03em;
+}
+.spotify-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.spotify-widget .spotify-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.spotify-widget .spotify-artist {
+  color: var(--text);
+}
+.spotify-widget .spotify-track {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--underline);
+  width: fit-content;
+  transition: opacity 0.3s ease;
+}
+.spotify-widget .spotify-track:hover {
+  opacity: 0.7;
+}
+.spotify-widget .spotify-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.contact-intro {
+  font-size: clamp(1.25rem, 1.6vw + 0.6rem, 2rem);
+  line-height: 1.2;
+  margin: 0 0 8px 0; /* tighter gap above email */
+  max-width: 60vw;
+  letter-spacing: -0.03em;
+  color: var(--muted);
+}
+
+/* Slightly smaller inline icon in contact intro only */
+.contact-intro .inline-marker {
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0 -2px; /* tighten space on both sides of the icon */
+}
+.contact-social {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1.1;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 2px solid var(--underline);
+  padding-bottom: 0.2em;
+  transition: opacity 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  letter-spacing: -0.03em;
+}
+.contact-social .at { color: var(--muted-weak); }
+.contact-social:hover {
+  opacity: 0.7;
+}
+
+/* removed location chip */
+/* removed contact location marker */
+
+
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+  .hero .hero-title {
+    font-size: clamp(120px, 45vw, 200px);
+  }
+  
+  .projects-row {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 32px !important;
+  }
+  
+  .hero {
+    min-height: auto;
+  }
+  
+  .hero .container {
+    padding-top: 48px;
+    padding-bottom: 0px;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .hero .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero .hero-left {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero .hero-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0;
+  }
+  
+  .hero-titles {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero .hero-title {
+    font-size: clamp(80px, 35vw, 160px) !important;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .hero-title:last-child {
+    text-align: left;
+  }
+  
+  /* Mobile hero-right text styling - same as desktop */
+  .hero .hero-services-text {
+    line-height: 1.7;
+    margin: 4px 0;
+  }
+  
+  .hero .hero-social-link {
+    line-height: 1;
+  }
+  /* Increase gap between Instagram tags on mobile */
+  .hero .hero-social-link + .hero-social-link {
+    margin-top: 8px;
+  }
+  .hero-mark-img {
+    height: 25vh;
+  }
+  
+  .about .about-intro {
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+
+  
+  /* Projects Row Mobile */
+  .projects-row {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 48px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .projects-row .project-item:first-child {
+    flex: none;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .projects-row .project-item:not(:first-child) {
+    flex: none;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .projects-row .project-image {
+    height: clamp(400px, 60vh, 500px);
+  }
+  
+  /* First project (Tshirt) - more square proportion */
+  .projects-row .project-item:first-child .project-image {
+    height: clamp(350px, 50vh, 450px);
+  }
+  
+  /* Other projects - more vertical proportion */
+  .projects-row .project-item:not(:first-child) .project-image {
+    height: clamp(400px, 60vh, 500px);
+  }
+  
+  /* Remove the slide-down effect on mobile */
+  .projects-row .project-item:nth-child(2) {
+    margin-top: 0;
+  }
+  
+  /* Mobile social responsive */
+  .contact-social {
+    font-size: clamp(2rem, 8vw, 3rem);
+    max-width: 100%;
+    text-align: center;
+  }
+  /* Reduce gap between contact and Spotify on mobile */
+  .spotify-widget {
+    margin-top: 32px;
+  }
+}
+
