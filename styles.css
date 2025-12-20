@@ -168,12 +168,12 @@ main {
   font-weight: 500;
 }
 
-/* Spotify Section */
-.spotify-section {
-  padding: 0 0 24px 0;
+/* Footer */
+.footer {
+  padding: 48px 0 24px 0;
 }
 
-.spotify-section .container {
+.footer .container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
