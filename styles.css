@@ -72,13 +72,29 @@ main {
 }
 
 .header-name {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0;
   line-height: 1;
   text-transform: lowercase;
   color: var(--text);
+}
+
+.header-current {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.header-current a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--underline);
+  transition: opacity 0.3s ease;
+}
+
+.header-current a:hover {
+  opacity: 0.7;
 }
 
 /* Projects Section */
