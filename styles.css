@@ -119,18 +119,6 @@ main {
   border-radius: 0;
 }
 
-/* Mobile image switching */
-@media (max-width: 768px) {
-  .project-item:nth-child(1) .project-preview {
-    content: url('assets/Thankyoutshirt.png');
-  }
-  .project-item:nth-child(2) .project-preview {
-    content: url('assets/App-mobile.png');
-  }
-  .project-item:nth-child(3) .project-preview {
-    content: url('assets/Calendar-mobile.png');
-  }
-}
 
 .projects-row .project-text {
   display: flex;
