@@ -46,6 +46,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-inline: 0;
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(2rem, 5vw, 4rem);
+  width: 100%;
+  max-width: 100%;
 }
 
 .header-content {
@@ -157,8 +162,13 @@ main {
 
 .spotify-section .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-inline: 0;
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(2rem, 5vw, 4rem);
+  width: 100%;
+  max-width: 100%;
 }
 
 .spotify-widget {
