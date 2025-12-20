@@ -122,8 +122,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   margin-top: 0.25rem;
 }
 
