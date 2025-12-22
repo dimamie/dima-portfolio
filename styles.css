@@ -208,7 +208,7 @@ main {
 
 .projects-row .project-image {
   width: 100%;
-  height: clamp(300px, 40vh, 500px);
+  height: clamp(300px, 50vh, 600px);
   overflow: hidden;
   position: relative;
   background-color: #f5f5f5;
