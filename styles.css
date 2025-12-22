@@ -136,9 +136,9 @@ main {
 }
 
 .email-copy-btn {
-  background: none;
+  background: #F5F5F5;
   border: none;
-  padding: 0.25rem;
+  padding: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -146,6 +146,8 @@ main {
   transition: opacity 0.3s ease, background-color 0.3s ease;
   opacity: 1;
   border-radius: 4px;
+  width: 60px;
+  flex-shrink: 0;
 }
 
 .email-copy-btn:hover {
