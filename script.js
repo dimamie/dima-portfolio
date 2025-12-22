@@ -21,12 +21,11 @@
     emailCopyBtn.addEventListener('click', function() {
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
-        // Visual feedback - swap to check icon and text with GSAP animation
+        // Visual feedback - swap to check icon with GSAP animation
         const copyIcon = emailCopyBtn.querySelector('.copy-icon');
-        const copyText = emailCopyBtn.querySelector('.copy-text');
-        if (copyIcon && copyText) {
-          // Fade out copy icon and text
-          gsap.to([copyIcon, copyText], {
+        if (copyIcon) {
+          // Fade out copy icon
+          gsap.to(copyIcon, {
             opacity: 0,
             scale: 0.8,
             duration: 0.2,
@@ -40,13 +39,8 @@
               checkIcon.style.transform = 'scale(0.8)';
               copyIcon.replaceWith(checkIcon);
               
-              // Update text to "Copied"
-              copyText.textContent = 'Copied';
-              copyText.style.opacity = '0';
-              copyText.style.transform = 'scale(0.8)';
-              
-              // Fade in check icon and text
-              gsap.to([checkIcon, copyText], {
+              // Fade in check icon
+              gsap.to(checkIcon, {
                 opacity: 1,
                 scale: 1,
                 duration: 0.2,
@@ -55,14 +49,13 @@
               
               // After 2 seconds, fade out check and fade in copy
               setTimeout(function() {
-                gsap.to([checkIcon, copyText], {
+                gsap.to(checkIcon, {
                   opacity: 0,
                   scale: 0.8,
                   duration: 0.2,
                   onComplete: function() {
                     checkIcon.replaceWith(copyIcon);
-                    copyText.textContent = 'Copy';
-                    gsap.fromTo([copyIcon, copyText], 
+                    gsap.fromTo(copyIcon, 
                       { opacity: 0, scale: 0.8 },
                       { opacity: 1, scale: 1, duration: 0.2 }
                     );
@@ -82,17 +75,14 @@
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
         const copyIcon = emailCopyBtn.querySelector('.copy-icon');
-        const copyText = emailCopyBtn.querySelector('.copy-text');
-        if (copyIcon && copyText) {
+        if (copyIcon) {
           const checkIcon = document.createElement('img');
           checkIcon.src = 'assets/Check.svg';
           checkIcon.alt = 'Copied';
           checkIcon.className = 'check-icon';
           copyIcon.replaceWith(checkIcon);
-          copyText.textContent = 'Copied';
           setTimeout(function() {
             checkIcon.replaceWith(copyIcon);
-            copyText.textContent = 'Copy';
           }, 2000);
         }
       }).catch(function(err) {
