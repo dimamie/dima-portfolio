@@ -168,7 +168,6 @@ main {
   display: block;
   filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  margin-right: 0.25rem;
 }
 
 .check-icon {
@@ -176,7 +175,6 @@ main {
   height: 18px;
   display: block;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  margin-right: 0.25rem;
 }
 
 /* Projects Section */
