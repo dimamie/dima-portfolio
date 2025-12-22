@@ -17,11 +17,63 @@
 
   // Email copy to clipboard
   const emailCopyBtn = document.querySelector('.email-copy-btn');
-  if (emailCopyBtn) {
+  if (emailCopyBtn && typeof gsap !== 'undefined') {
     emailCopyBtn.addEventListener('click', function() {
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
-        // Visual feedback - swap to check icon
+        // Visual feedback - swap to check icon with GSAP animation
+        const copyIcon = emailCopyBtn.querySelector('.copy-icon');
+        if (copyIcon) {
+          // Fade out copy icon
+          gsap.to(copyIcon, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.2,
+            onComplete: function() {
+              // Create and add check icon
+              const checkIcon = document.createElement('img');
+              checkIcon.src = 'assets/Check.svg';
+              checkIcon.alt = 'Copied';
+              checkIcon.className = 'check-icon';
+              checkIcon.style.opacity = '0';
+              checkIcon.style.transform = 'scale(0.8)';
+              copyIcon.replaceWith(checkIcon);
+              
+              // Fade in check icon
+              gsap.to(checkIcon, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.2,
+                delay: 0.1
+              });
+              
+              // After 2 seconds, fade out check and fade in copy
+              setTimeout(function() {
+                gsap.to(checkIcon, {
+                  opacity: 0,
+                  scale: 0.8,
+                  duration: 0.2,
+                  onComplete: function() {
+                    checkIcon.replaceWith(copyIcon);
+                    gsap.fromTo(copyIcon, 
+                      { opacity: 0, scale: 0.8 },
+                      { opacity: 1, scale: 1, duration: 0.2 }
+                    );
+                  }
+                });
+              }, 2000);
+            }
+          });
+        }
+      }).catch(function(err) {
+        console.error('Failed to copy email:', err);
+      });
+    });
+  } else if (emailCopyBtn) {
+    // Fallback if GSAP is not loaded
+    emailCopyBtn.addEventListener('click', function() {
+      const email = 'dzimaartizd@gmail.com';
+      navigator.clipboard.writeText(email).then(function() {
         const copyIcon = emailCopyBtn.querySelector('.copy-icon');
         if (copyIcon) {
           const checkIcon = document.createElement('img');
