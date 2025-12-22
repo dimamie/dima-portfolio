@@ -122,7 +122,7 @@ main {
 .header-email {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 8px;
 }
 
 .email-text {
@@ -145,9 +145,11 @@ main {
   justify-content: center;
   transition: opacity 0.3s ease, background-color 0.3s ease;
   opacity: 1;
-  border-radius: 4px;
+  border-radius: 1000px;
   width: 60px;
+  height: 40px;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .email-copy-btn:hover {
