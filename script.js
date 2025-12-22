@@ -22,10 +22,10 @@
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
         // Visual feedback - swap to check icon with GSAP animation
-        const copyIcon = emailCopyBtn.querySelector('.copy-icon');
-        if (copyIcon) {
-          // Fade out copy icon
-          gsap.to(copyIcon, {
+        const copyText = emailCopyBtn.querySelector('.copy-text');
+        if (copyText) {
+          // Fade out copy text
+          gsap.to(copyText, {
             opacity: 0,
             scale: 0.8,
             duration: 0.2,
@@ -37,7 +37,7 @@
               checkIcon.className = 'check-icon';
               checkIcon.style.opacity = '0';
               checkIcon.style.transform = 'scale(0.8)';
-              copyIcon.replaceWith(checkIcon);
+              copyText.replaceWith(checkIcon);
               
               // Fade in check icon
               gsap.to(checkIcon, {
@@ -47,15 +47,15 @@
                 delay: 0.1
               });
               
-              // After 2 seconds, fade out check and fade in copy
+              // After 2 seconds, fade out check and fade in copy text
               setTimeout(function() {
                 gsap.to(checkIcon, {
                   opacity: 0,
                   scale: 0.8,
                   duration: 0.2,
                   onComplete: function() {
-                    checkIcon.replaceWith(copyIcon);
-                    gsap.fromTo(copyIcon, 
+                    checkIcon.replaceWith(copyText);
+                    gsap.fromTo(copyText, 
                       { opacity: 0, scale: 0.8 },
                       { opacity: 1, scale: 1, duration: 0.2 }
                     );
@@ -74,15 +74,15 @@
     emailCopyBtn.addEventListener('click', function() {
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
-        const copyIcon = emailCopyBtn.querySelector('.copy-icon');
-        if (copyIcon) {
+        const copyText = emailCopyBtn.querySelector('.copy-text');
+        if (copyText) {
           const checkIcon = document.createElement('img');
           checkIcon.src = 'assets/Check.svg';
           checkIcon.alt = 'Copied';
           checkIcon.className = 'check-icon';
-          copyIcon.replaceWith(checkIcon);
+          copyText.replaceWith(checkIcon);
           setTimeout(function() {
-            checkIcon.replaceWith(copyIcon);
+            checkIcon.replaceWith(copyText);
           }, 2000);
         }
       }).catch(function(err) {
