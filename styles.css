@@ -122,6 +122,10 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
 }
 
 .email-text {
@@ -139,12 +143,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   opacity: 0.7;
 }
 
 .email-copy-btn:hover {
-  color: var(--text);
   opacity: 1;
 }
 
@@ -152,7 +155,15 @@ main {
   opacity: 0.5;
 }
 
-.email-copy-btn svg {
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
   display: block;
 }
 

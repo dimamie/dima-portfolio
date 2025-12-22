@@ -21,14 +21,18 @@
     emailCopyBtn.addEventListener('click', function() {
       const email = 'dzimaartizd@gmail.com';
       navigator.clipboard.writeText(email).then(function() {
-        // Visual feedback
-        const originalHTML = emailCopyBtn.innerHTML;
-        emailCopyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 4.5L6 12M13.5 4.5L10 4.5M13.5 4.5L13.5 8M6 12L2.5 12M6 12L6 8.5M2.5 12L2.5 3.5L10 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        emailCopyBtn.style.color = 'var(--text)';
-        setTimeout(function() {
-          emailCopyBtn.innerHTML = originalHTML;
-          emailCopyBtn.style.color = '';
-        }, 2000);
+        // Visual feedback - swap to check icon
+        const copyIcon = emailCopyBtn.querySelector('.copy-icon');
+        if (copyIcon) {
+          const checkIcon = document.createElement('img');
+          checkIcon.src = 'assets/Check.svg';
+          checkIcon.alt = 'Copied';
+          checkIcon.className = 'check-icon';
+          copyIcon.replaceWith(checkIcon);
+          setTimeout(function() {
+            checkIcon.replaceWith(copyIcon);
+          }, 2000);
+        }
       }).catch(function(err) {
         console.error('Failed to copy email:', err);
       });
