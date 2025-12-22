@@ -130,7 +130,7 @@ main {
 }
 
 .email-text {
-  font-size: 18px;
+  font-size: 15px;
   color: var(--text);
   letter-spacing: -0.03em;
 }
@@ -140,31 +140,31 @@ main {
   border: none;
   padding: 0.25rem;
   cursor: pointer;
-  color: var(--muted);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
-  opacity: 0.7;
-}
-
-.email-copy-btn:hover {
   opacity: 1;
 }
 
+.email-copy-btn:hover {
+  opacity: 0.8;
+}
+
 .email-copy-btn:active {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .copy-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   display: block;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
 }
 
 .check-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
