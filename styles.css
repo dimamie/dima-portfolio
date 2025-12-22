@@ -143,8 +143,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
   opacity: 1;
+  border-radius: 4px;
 }
 
 .email-copy-btn:hover {
