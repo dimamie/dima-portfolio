@@ -155,7 +155,7 @@ main {
 .email-copy-btn:hover {
   opacity: 0.8;
   background: #ebebeb;
-  border-radius: 4px;
+  border-radius: 1000px;
 }
 
 .email-copy-btn:active {
