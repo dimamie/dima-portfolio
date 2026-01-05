@@ -230,6 +230,13 @@ main {
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
+.projects-row video.project-preview {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  max-width: 70%;
+  max-height: 70%;
+}
+
 
 .projects-row .project-text {
   display: flex;
