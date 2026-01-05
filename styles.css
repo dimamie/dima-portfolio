@@ -222,6 +222,10 @@ main {
   padding: 0;
 }
 
+.projects-row .project-item:first-child .project-image {
+  border: 1px solid var(--border);
+}
+
 .projects-row .project-preview {
   max-width: 90%;
   max-height: 90%;
