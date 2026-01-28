@@ -154,12 +154,14 @@ class PriceChart {
 
     // Draw line
     ctx.beginPath();
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
     ctx.moveTo(points[0].x, points[0].y);
     points.forEach(point => {
       ctx.lineTo(point.x, point.y);
     });
     ctx.strokeStyle = '#22c55e';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3.5;
     ctx.stroke();
 
     // Draw date labels (show 3 dates)
