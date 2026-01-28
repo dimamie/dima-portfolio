@@ -66,12 +66,22 @@ class PriceChart {
     const rect = this.canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
 
-    const padding = 40;
-    const chartWidth = this.width - padding * 2;
+    const leftPadding = 40;
+
+    // Calculate right padding same as in draw()
+    const ctx = this.ctx;
+    ctx.font = '600 24px Inter, sans-serif';
+    const samplePriceWidth = ctx.measureText('999.99').width;
+    ctx.font = '12px Inter, sans-serif';
+    const sampleUsdWidth = ctx.measureText('USD').width;
+    const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
+    const rightPadding = Math.max(40, priceTextWidth / 2 + 20);
+
+    const chartWidth = this.width - leftPadding - rightPadding;
     const pointSpacing = chartWidth / (this.data.length - 1);
 
     // Find closest data point
-    const index = Math.round((x - padding) / pointSpacing);
+    const index = Math.round((x - leftPadding) / pointSpacing);
 
     if (index >= 0 && index < this.data.length) {
       this.hoveredIndex = index;
@@ -94,10 +104,20 @@ class PriceChart {
 
     // Reserve space at top for price display
     const priceAreaHeight = 50;
-    const padding = 40;
-    const chartWidth = width - padding * 2;
-    const chartHeight = height - padding * 2 - priceAreaHeight;
-    const chartTop = padding + priceAreaHeight;
+    const leftPadding = 40;
+
+    // Calculate right padding to accommodate centered price text at the rightmost point
+    // Measure the approximate width of price + USD text
+    ctx.font = '600 24px Inter, sans-serif';
+    const samplePriceWidth = ctx.measureText('999.99').width;
+    ctx.font = '12px Inter, sans-serif';
+    const sampleUsdWidth = ctx.measureText('USD').width;
+    const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
+    const rightPadding = Math.max(40, priceTextWidth / 2 + 20); // At least 40px, or half the price width + buffer
+
+    const chartWidth = width - leftPadding - rightPadding;
+    const chartHeight = height - leftPadding * 2 - priceAreaHeight;
+    const chartTop = leftPadding + priceAreaHeight;
 
     // Find min and max prices for scaling
     const prices = this.data.map(d => d.price);
@@ -107,18 +127,18 @@ class PriceChart {
 
     // Calculate points
     const points = this.data.map((d, i) => {
-      const x = padding + (i / (this.data.length - 1)) * chartWidth;
+      const x = leftPadding + (i / (this.data.length - 1)) * chartWidth;
       const y = chartTop + chartHeight - ((d.price - minPrice) / priceRange) * chartHeight;
       return { x, y, price: d.price, date: d.date };
     });
 
     // Draw gradient fill
-    const gradient = ctx.createLinearGradient(0, chartTop, 0, height - padding);
+    const gradient = ctx.createLinearGradient(0, chartTop, 0, height - leftPadding);
     gradient.addColorStop(0, 'rgba(34, 197, 94, 0.15)');
     gradient.addColorStop(1, 'rgba(34, 197, 94, 0)');
 
     ctx.beginPath();
-    ctx.moveTo(points[0].x, height - padding);
+    ctx.moveTo(points[0].x, height - leftPadding);
     points.forEach((point, i) => {
       if (i === 0) {
         ctx.lineTo(point.x, point.y);
@@ -126,7 +146,7 @@ class PriceChart {
         ctx.lineTo(point.x, point.y);
       }
     });
-    ctx.lineTo(points[points.length - 1].x, height - padding);
+    ctx.lineTo(points[points.length - 1].x, height - leftPadding);
     ctx.closePath();
     ctx.fillStyle = gradient;
     ctx.fill();
@@ -151,7 +171,7 @@ class PriceChart {
       const point = points[i];
       const date = this.data[i].date;
       const dateStr = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}`;
-      ctx.fillText(dateStr, point.x, height - padding + 20);
+      ctx.fillText(dateStr, point.x, height - leftPadding + 20);
     });
 
     // Draw price at top - positioned at hovered point's x or at the end
@@ -181,8 +201,8 @@ class PriceChart {
 
     // Constrain position to keep text within bounds
     let constrainedX = priceX;
-    const minX = padding + (totalWidth / 2);
-    const maxX = width - padding - (totalWidth / 2);
+    const minX = leftPadding + (totalWidth / 2);
+    const maxX = width - rightPadding - (totalWidth / 2);
     constrainedX = Math.max(minX, Math.min(maxX, constrainedX));
 
     const startX = constrainedX - (totalWidth / 2);
@@ -192,20 +212,20 @@ class PriceChart {
     ctx.letterSpacing = '-0.01em';
     ctx.fillStyle = '#111114';
     ctx.textAlign = 'left';
-    ctx.fillText(priceText, startX, padding + 10);
+    ctx.fillText(priceText, startX, leftPadding + 10);
 
     // Draw USD inline with 2px gap
     ctx.font = '12px Inter, sans-serif';
     ctx.letterSpacing = '0';
     ctx.fillStyle = '#9a9aa3';
-    ctx.fillText('USD', startX + priceWidth + 2, padding + 10);
+    ctx.fillText('USD', startX + priceWidth + 2, leftPadding + 10);
 
     // Draw percentage change below, centered
     ctx.textAlign = 'center';
     ctx.font = '11px Inter, sans-serif';
     ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
-    ctx.fillText(changeText, constrainedX, padding + 27);
+    ctx.fillText(changeText, constrainedX, leftPadding + 27);
 
     // Draw hover line and tooltip
     if (this.hoveredIndex !== null) {
@@ -214,7 +234,7 @@ class PriceChart {
       // Draw vertical line
       ctx.beginPath();
       ctx.moveTo(point.x, chartTop);
-      ctx.lineTo(point.x, height - padding);
+      ctx.lineTo(point.x, height - leftPadding);
       ctx.strokeStyle = 'rgba(17, 17, 20, 0.2)';
       ctx.lineWidth = 1;
       ctx.stroke();
