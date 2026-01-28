@@ -92,10 +92,12 @@ class PriceChart {
     // Clear canvas
     ctx.clearRect(0, 0, width, height);
 
-    // Set up padding
+    // Reserve space at top for price display
+    const priceAreaHeight = 50;
     const padding = 40;
     const chartWidth = width - padding * 2;
-    const chartHeight = height - padding * 2;
+    const chartHeight = height - padding * 2 - priceAreaHeight;
+    const chartTop = padding + priceAreaHeight;
 
     // Find min and max prices for scaling
     const prices = this.data.map(d => d.price);
@@ -106,12 +108,12 @@ class PriceChart {
     // Calculate points
     const points = this.data.map((d, i) => {
       const x = padding + (i / (this.data.length - 1)) * chartWidth;
-      const y = padding + chartHeight - ((d.price - minPrice) / priceRange) * chartHeight;
+      const y = chartTop + chartHeight - ((d.price - minPrice) / priceRange) * chartHeight;
       return { x, y, price: d.price, date: d.date };
     });
 
     // Draw gradient fill
-    const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+    const gradient = ctx.createLinearGradient(0, chartTop, 0, height - padding);
     gradient.addColorStop(0, 'rgba(34, 197, 94, 0.15)');
     gradient.addColorStop(1, 'rgba(34, 197, 94, 0)');
 
@@ -152,25 +154,29 @@ class PriceChart {
       ctx.fillText(dateStr, point.x, height - padding + 20);
     });
 
-    // Draw current price and change (or hovered price if hovering)
+    // Draw price at top - positioned at hovered point's x or at the end
     const displayIndex = this.hoveredIndex !== null ? this.hoveredIndex : this.data.length - 1;
     const displayPrice = this.data[displayIndex].price;
     const firstPrice = this.data[0].price;
     const change = displayPrice - firstPrice;
     const changePercent = (change / firstPrice) * 100;
 
-    ctx.textAlign = 'right';
-    ctx.font = '600 24px Inter, sans-serif';
+    // Get x position for price display
+    const priceX = points[displayIndex].x;
+
+    // Draw price and percentage at the top, following the hover position
+    ctx.textAlign = 'left';
+    ctx.font = '600 20px Inter, sans-serif';
     ctx.fillStyle = '#111114';
-    ctx.fillText(`${displayPrice.toFixed(2)}`, width - padding, padding + 10);
+    ctx.fillText(`${displayPrice.toFixed(2)}`, priceX, padding + 5);
 
     ctx.font = '11px Inter, sans-serif';
     ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
-    ctx.fillText(changeText, width - padding, padding + 26);
+    ctx.fillText(changeText, priceX, padding + 22);
 
     ctx.fillStyle = '#9a9aa3';
-    ctx.fillText('past week', width - padding, padding + 40);
+    ctx.fillText('USD', priceX + ctx.measureText(`${displayPrice.toFixed(2)}`).width + 4, padding + 5);
 
     // Draw hover line and tooltip
     if (this.hoveredIndex !== null) {
@@ -178,9 +184,8 @@ class PriceChart {
 
       // Draw vertical line
       ctx.beginPath();
-      ctx.moveTo(point.x, padding);
-      ctx.moveTo(point.x, height - padding);
-      ctx.lineTo(point.x, padding);
+      ctx.moveTo(point.x, chartTop);
+      ctx.lineTo(point.x, height - padding);
       ctx.strokeStyle = 'rgba(17, 17, 20, 0.2)';
       ctx.lineWidth = 1;
       ctx.stroke();
