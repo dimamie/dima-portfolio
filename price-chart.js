@@ -166,17 +166,26 @@ class PriceChart {
 
     // Draw price and percentage at the top, following the hover position
     ctx.textAlign = 'left';
-    ctx.font = '600 20px Inter, sans-serif';
-    ctx.fillStyle = '#111114';
-    ctx.fillText(`${displayPrice.toFixed(2)}`, priceX, padding + 5);
 
+    // Draw price with letter spacing
+    ctx.font = '600 24px Inter, sans-serif';
+    ctx.letterSpacing = '-0.01em';
+    ctx.fillStyle = '#111114';
+    const priceText = `${displayPrice.toFixed(2)}`;
+    ctx.fillText(priceText, priceX, padding + 10);
+
+    // Draw USD inline with 2px gap
+    const priceWidth = ctx.measureText(priceText).width;
+    ctx.font = '12px Inter, sans-serif';
+    ctx.letterSpacing = '0';
+    ctx.fillStyle = '#9a9aa3';
+    ctx.fillText('USD', priceX + priceWidth + 2, padding + 10);
+
+    // Draw percentage change below
     ctx.font = '11px Inter, sans-serif';
     ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
-    ctx.fillText(changeText, priceX, padding + 22);
-
-    ctx.fillStyle = '#9a9aa3';
-    ctx.fillText('USD', priceX + ctx.measureText(`${displayPrice.toFixed(2)}`).width + 4, padding + 5);
+    ctx.fillText(changeText, priceX, padding + 27);
 
     // Draw hover line and tooltip
     if (this.hoveredIndex !== null) {
