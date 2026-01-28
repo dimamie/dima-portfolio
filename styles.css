@@ -7,11 +7,16 @@
   --underline: rgba(17, 17, 20, 0.1);
 }
 
-* { box-sizing: border-box; }
-html, body { 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   height: 100%;
   overflow-x: hidden;
 }
+
 body {
   margin: 0;
   font-family: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -22,7 +27,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, svg { display: block; max-width: 100%; }
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
 main {
   width: 100%;
@@ -223,7 +232,8 @@ main {
 }
 
 .projects-row .project-item:first-child .project-image {
-  border: 1px solid var(--border);
+  /* border: 1px solid var(--border); */
+  /* Removed for chart widget */
 }
 
 .projects-row .project-preview {
@@ -344,11 +354,11 @@ main {
     max-width: 100% !important;
     padding-inline: 32px !important;
   }
-  
+
   .header {
     padding: 24px 0 32px 0;
   }
-  
+
   .projects-row {
     margin-top: 0;
     flex-direction: column;
@@ -357,21 +367,21 @@ main {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   .projects-row .project-item:first-child {
     flex: none;
     min-width: auto;
     width: 100%;
   }
-  
+
   .projects-row .project-item:not(:first-child) {
     flex: none;
     min-width: auto;
     width: 100%;
   }
-  
+
   .projects-row .project-image {
     height: clamp(300px, 40vh, 500px);
   }
-  
+
 }
