@@ -231,10 +231,6 @@ main {
   padding: 0;
 }
 
-.projects-row .project-item:first-child .project-image {
-  /* border: 1px solid var(--border); */
-  /* Removed for chart widget */
-}
 
 .projects-row .project-preview {
   max-width: 90%;
