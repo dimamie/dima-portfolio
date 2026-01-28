@@ -138,38 +138,63 @@ class PriceChart {
     gradient.addColorStop(0, 'rgba(34, 197, 94, 0.15)');
     gradient.addColorStop(1, 'rgba(34, 197, 94, 0)');
 
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, height - verticalPadding);
-    ctx.lineTo(points[0].x, points[0].y);
+    // Helper to get control points for smooth cubic bezier
+    const getControlPoints = (p0, p1, p2, t = 0.2) => {
+      const d1 = Math.sqrt(Math.pow(p1.x - p0.x, 2) + Math.pow(p1.y - p0.y, 2));
+      const d2 = Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+      const fa = t * d1 / (d1 + d2);
+      const fb = t * d2 / (d1 + d2);
+      const p1x = p1.x - fa * (p2.x - p0.x);
+      const p1y = p1.y - fa * (p2.y - p0.y);
+      const p2x = p1.x + fb * (p2.x - p0.x);
+      const p2y = p1.y + fb * (p2.y - p0.y);
+      return { cp1: { x: p1x, y: p1y }, cp2: { x: p2x, y: p2y } };
+    };
 
-    // Use quadratic curves for smoothing fill
-    for (let i = 0; i < points.length - 1; i++) {
-      const xc = (points[i].x + points[i + 1].x) / 2;
-      const yc = (points[i].y + points[i + 1].y) / 2;
-      ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-    }
+    // Draw smooth curve path
+    const drawSmoothPath = (ctx, pts, isFill = false) => {
+      if (pts.length < 2) return;
 
-    ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
-    ctx.lineTo(points[points.length - 1].x, height - verticalPadding);
-    ctx.closePath();
+      ctx.beginPath();
+      if (isFill) {
+        ctx.moveTo(pts[0].x, height - verticalPadding);
+        ctx.lineTo(pts[0].x, pts[0].y);
+      } else {
+        ctx.moveTo(pts[0].x, pts[0].y);
+      }
+
+      for (let i = 0; i < pts.length - 1; i++) {
+        const p0 = pts[i === 0 ? 0 : i - 1];
+        const p1 = pts[i];
+        const p2 = pts[i + 1];
+        const p3 = pts[i + 2 >= pts.length ? pts.length - 1 : i + 2];
+
+        const cp1 = getControlPoints(p0, p1, p2).cp2;
+        const cp2 = getControlPoints(p1, p2, p3).cp1;
+
+        if (isNaN(cp1.x) || isNaN(cp1.y) || isNaN(cp2.x) || isNaN(cp2.y)) {
+          ctx.lineTo(p2.x, p2.y);
+        } else {
+          ctx.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, p2.x, p2.y);
+        }
+      }
+
+      if (isFill) {
+        ctx.lineTo(pts[pts.length - 1].x, height - verticalPadding);
+        ctx.closePath();
+      }
+    };
+
+    // Draw gradient fill
+    drawSmoothPath(ctx, points, true);
     ctx.fillStyle = gradient;
     ctx.fill();
 
     // Draw line with smoothing
-    ctx.beginPath();
+    drawSmoothPath(ctx, points, false);
+
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.moveTo(points[0].x, points[0].y);
-
-    // Use quadratic curves for smoothing
-    for (let i = 0; i < points.length - 1; i++) {
-      const xc = (points[i].x + points[i + 1].x) / 2;
-      const yc = (points[i].y + points[i + 1].y) / 2;
-      ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-    }
-    // Draw the last segment
-    ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
-
     ctx.strokeStyle = '#22c55e';
     ctx.lineWidth = 2.5;
     ctx.stroke();
