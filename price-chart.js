@@ -140,28 +140,38 @@ class PriceChart {
 
     ctx.beginPath();
     ctx.moveTo(points[0].x, height - verticalPadding);
-    points.forEach((point, i) => {
-      if (i === 0) {
-        ctx.lineTo(point.x, point.y);
-      } else {
-        ctx.lineTo(point.x, point.y);
-      }
-    });
+    ctx.lineTo(points[0].x, points[0].y);
+
+    // Use quadratic curves for smoothing fill
+    for (let i = 0; i < points.length - 1; i++) {
+      const xc = (points[i].x + points[i + 1].x) / 2;
+      const yc = (points[i].y + points[i + 1].y) / 2;
+      ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+    }
+
+    ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
     ctx.lineTo(points[points.length - 1].x, height - verticalPadding);
     ctx.closePath();
     ctx.fillStyle = gradient;
     ctx.fill();
 
-    // Draw line
+    // Draw line with smoothing
     ctx.beginPath();
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.moveTo(points[0].x, points[0].y);
-    points.forEach(point => {
-      ctx.lineTo(point.x, point.y);
-    });
+
+    // Use quadratic curves for smoothing
+    for (let i = 0; i < points.length - 1; i++) {
+      const xc = (points[i].x + points[i + 1].x) / 2;
+      const yc = (points[i].y + points[i + 1].y) / 2;
+      ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+    }
+    // Draw the last segment
+    ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+
     ctx.strokeStyle = '#22c55e';
-    ctx.lineWidth = 3.5;
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
     // Draw date labels (show 3 dates)
