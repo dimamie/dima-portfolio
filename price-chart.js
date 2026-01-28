@@ -178,7 +178,14 @@ class PriceChart {
     ctx.font = '12px Inter, sans-serif';
     const usdWidth = ctx.measureText('USD').width;
     const totalWidth = priceWidth + 2 + usdWidth;
-    const startX = priceX - (totalWidth / 2);
+
+    // Constrain position to keep text within bounds
+    let constrainedX = priceX;
+    const minX = padding + (totalWidth / 2);
+    const maxX = width - padding - (totalWidth / 2);
+    constrainedX = Math.max(minX, Math.min(maxX, constrainedX));
+
+    const startX = constrainedX - (totalWidth / 2);
 
     // Draw price
     ctx.font = '600 24px Inter, sans-serif';
@@ -198,7 +205,7 @@ class PriceChart {
     ctx.font = '11px Inter, sans-serif';
     ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
-    ctx.fillText(changeText, priceX, padding + 27);
+    ctx.fillText(changeText, constrainedX, padding + 27);
 
     // Draw hover line and tooltip
     if (this.hoveredIndex !== null) {
