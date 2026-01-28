@@ -199,11 +199,10 @@ class PriceChart {
     const usdWidth = ctx.measureText('USD').width;
     const totalWidth = priceWidth + 2 + usdWidth;
 
-    // Constrain position to keep text within bounds
+    // Constrain position to keep text within bounds (only left edge, right has enough padding)
     let constrainedX = priceX;
     const minX = leftPadding + (totalWidth / 2);
-    const maxX = width - rightPadding - (totalWidth / 2);
-    constrainedX = Math.max(minX, Math.min(maxX, constrainedX));
+    constrainedX = Math.max(minX, constrainedX);
 
     const startX = constrainedX - (totalWidth / 2);
 
