@@ -70,9 +70,9 @@ class PriceChart {
 
     // Calculate right padding same as in draw()
     const ctx = this.ctx;
-    ctx.font = '400 32px Inter, sans-serif';
+    ctx.font = '400 28px Inter, sans-serif';
     const samplePriceWidth = ctx.measureText('999.99').width;
-    ctx.font = '12px Inter, sans-serif';
+    ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
     const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
     const rightPadding = Math.max(80, priceTextWidth + 40); // Significantly more padding for centering
@@ -109,9 +109,9 @@ class PriceChart {
 
     // Calculate right padding to accommodate centered price text at the rightmost point
     // Measure the approximate width of price + USD text
-    ctx.font = '400 32px Inter, sans-serif';
+    ctx.font = '400 28px Inter, sans-serif';
     const samplePriceWidth = ctx.measureText('999.99').width;
-    ctx.font = '12px Inter, sans-serif';
+    ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
     const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
     const rightPadding = Math.max(80, priceTextWidth + 40); // Significantly more padding for centering
@@ -226,14 +226,14 @@ class PriceChart {
     ctx.textAlign = 'center';
 
     // Draw price with letter spacing
-    ctx.font = '400 32px Inter, sans-serif';
+    ctx.font = '400 28px Inter, sans-serif';
     ctx.letterSpacing = '-0.01em';
     ctx.fillStyle = '#111114';
     const priceText = `${displayPrice.toFixed(2)}`;
     const priceWidth = ctx.measureText(priceText).width;
 
     // Calculate centered position for price + USD combo
-    ctx.font = '12px Inter, sans-serif';
+    ctx.font = '13px Inter, sans-serif';
     const usdWidth = ctx.measureText('USD').width;
     const totalWidth = priceWidth + 2 + usdWidth;
 
