@@ -226,27 +226,27 @@ class PriceChart {
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
     ctx.fillText(changeText, constrainedX, leftPadding + 27);
 
-    // Draw hover line and tooltip
-    if (this.hoveredIndex !== null) {
-      const point = points[this.hoveredIndex];
+    // Draw vertical line and tooltip (always visible)
+    const point = points[displayIndex];
 
-      // Draw vertical line
-      ctx.beginPath();
-      ctx.moveTo(point.x, chartTop);
-      ctx.lineTo(point.x, height - leftPadding);
-      ctx.strokeStyle = 'rgba(17, 17, 20, 0.2)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
+    // Draw vertical line
+    ctx.beginPath();
+    ctx.setLineDash([4, 4]); // Dotted line
+    ctx.moveTo(point.x, chartTop);
+    ctx.lineTo(point.x, height - leftPadding);
+    ctx.strokeStyle = 'rgba(17, 17, 20, 0.2)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.setLineDash([]); // Reset line dash
 
-      // Draw circle at point
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = '#22c55e';
-      ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
+    // Draw circle at point
+    ctx.beginPath();
+    ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#22c55e';
+    ctx.fill();
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
   }
 }
 
