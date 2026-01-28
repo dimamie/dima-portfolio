@@ -66,7 +66,7 @@ class PriceChart {
     const rect = this.canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
 
-    const leftPadding = 40;
+    const leftPadding = 0;
 
     // Calculate right padding same as in draw()
     const ctx = this.ctx;
@@ -104,7 +104,8 @@ class PriceChart {
 
     // Reserve space at top for price display
     const priceAreaHeight = 50;
-    const leftPadding = 40;
+    const verticalPadding = 40;
+    const leftPadding = 0;
 
     // Calculate right padding to accommodate centered price text at the rightmost point
     // Measure the approximate width of price + USD text
@@ -116,8 +117,8 @@ class PriceChart {
     const rightPadding = Math.max(80, priceTextWidth + 40); // Significantly more padding for centering
 
     const chartWidth = width - leftPadding - rightPadding;
-    const chartHeight = height - leftPadding * 2 - priceAreaHeight;
-    const chartTop = leftPadding + priceAreaHeight;
+    const chartHeight = height - verticalPadding * 2 - priceAreaHeight;
+    const chartTop = verticalPadding + priceAreaHeight;
 
     // Find min and max prices for scaling
     const prices = this.data.map(d => d.price);
@@ -133,12 +134,12 @@ class PriceChart {
     });
 
     // Draw gradient fill
-    const gradient = ctx.createLinearGradient(0, chartTop, 0, height - leftPadding);
+    const gradient = ctx.createLinearGradient(0, chartTop, 0, height - verticalPadding);
     gradient.addColorStop(0, 'rgba(34, 197, 94, 0.15)');
     gradient.addColorStop(1, 'rgba(34, 197, 94, 0)');
 
     ctx.beginPath();
-    ctx.moveTo(points[0].x, height - leftPadding);
+    ctx.moveTo(points[0].x, height - verticalPadding);
     points.forEach((point, i) => {
       if (i === 0) {
         ctx.lineTo(point.x, point.y);
@@ -146,7 +147,7 @@ class PriceChart {
         ctx.lineTo(point.x, point.y);
       }
     });
-    ctx.lineTo(points[points.length - 1].x, height - leftPadding);
+    ctx.lineTo(points[points.length - 1].x, height - verticalPadding);
     ctx.closePath();
     ctx.fillStyle = gradient;
     ctx.fill();
@@ -171,7 +172,7 @@ class PriceChart {
       const point = points[i];
       const date = this.data[i].date;
       const dateStr = `${String(date.getDate()).padStart(2, '0')}.${String(date.getMonth() + 1).padStart(2, '0')}`;
-      ctx.fillText(dateStr, point.x, height - leftPadding + 20);
+      ctx.fillText(dateStr, point.x, height - verticalPadding + 20);
     });
 
     // Draw price at top - positioned at hovered point's x or at the end
@@ -211,20 +212,20 @@ class PriceChart {
     ctx.letterSpacing = '-0.01em';
     ctx.fillStyle = '#111114';
     ctx.textAlign = 'left';
-    ctx.fillText(priceText, startX, leftPadding + 10);
+    ctx.fillText(priceText, startX, verticalPadding + 10);
 
     // Draw USD inline with 2px gap
     ctx.font = '12px Inter, sans-serif';
     ctx.letterSpacing = '0';
     ctx.fillStyle = '#9a9aa3';
-    ctx.fillText('USD', startX + priceWidth + 2, leftPadding + 10);
+    ctx.fillText('USD', startX + priceWidth + 2, verticalPadding + 10);
 
     // Draw percentage change below, centered
     ctx.textAlign = 'center';
     ctx.font = '11px Inter, sans-serif';
     ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
-    ctx.fillText(changeText, constrainedX, leftPadding + 27);
+    ctx.fillText(changeText, constrainedX, verticalPadding + 27);
 
     // Draw vertical line and tooltip (always visible)
     const point = points[displayIndex];
@@ -233,7 +234,7 @@ class PriceChart {
     ctx.beginPath();
     ctx.setLineDash([4, 4]); // Dotted line
     ctx.moveTo(point.x, chartTop);
-    ctx.lineTo(point.x, height - leftPadding);
+    ctx.lineTo(point.x, height - verticalPadding);
     ctx.strokeStyle = 'rgba(17, 17, 20, 0.2)';
     ctx.lineWidth = 1;
     ctx.stroke();
