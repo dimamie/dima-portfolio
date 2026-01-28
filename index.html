@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,16 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=103">
+  <link rel="stylesheet" href="price-chart.css">
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
+
 <body>
-  
+
   <main id="top">
     <header class="header">
       <div class="container">
         <div class="header-content">
           <img src="assets/avatar.JPG" alt="Dima Miedzianowski" class="header-avatar">
-          <h1 class="header-name">dima mie <span class="header-bullet">•</span> <span class="header-current">currently @ <img src="assets/XTBicon.png" alt="XTB" class="header-icon"> <a href="https://www.xtb.com/es" target="_blank" rel="noopener">xtb</a></span></h1>
+          <h1 class="header-name">dima mie <span class="header-bullet">•</span> <span class="header-current">currently @
+              <img src="assets/XTBicon.png" alt="XTB" class="header-icon"> <a href="https://www.xtb.com/es"
+                target="_blank" rel="noopener">xtb</a></span></h1>
         </div>
         <div class="header-email">
           <span class="email-text">dzimaartizd@gmail.com</span>
@@ -33,14 +38,7 @@
       <div class="projects-row">
         <div class="project-item">
           <div class="project-image">
-            <video src="assets/IKECalculator.mov" 
-                   alt="IKE Calculator" 
-                   class="project-preview"
-                   loop
-                   autoplay
-                   muted
-                   playsinline>
-            </video>
+            <canvas id="price-chart-canvas" class="price-chart-canvas"></canvas>
           </div>
           <div class="project-text">
             <h2 class="project-name">Fintech projects @ xtb</h2>
@@ -49,10 +47,7 @@
         </div>
         <div class="project-item">
           <div class="project-image">
-            <img src="assets/App.png" 
-                 alt="Word app" 
-                 class="project-preview"
-                 loading="lazy">
+            <img src="assets/App.png" alt="Word app" class="project-preview" loading="lazy">
           </div>
           <div class="project-text">
             <h2 class="project-name">Word app</h2>
@@ -61,10 +56,7 @@
         </div>
         <div class="project-item" data-project="calendar">
           <div class="project-image">
-            <img src="assets/SignUp.png" 
-                 alt="Sign Up" 
-                 class="project-preview"
-                 loading="lazy">
+            <img src="assets/SignUp.png" alt="Sign Up" class="project-preview" loading="lazy">
           </div>
           <div class="project-text">
             <h2 class="project-name">How to approach an interface</h2>
@@ -84,7 +76,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="price-chart.js"></script>
   <script src="script.js" defer></script>
   <script src="codepen-animation.js?v=34" defer></script>
 </body>
+
 </html>
