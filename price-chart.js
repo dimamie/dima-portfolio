@@ -66,7 +66,7 @@ class PriceChart {
     const rect = this.canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
 
-    const leftPadding = 0;
+    const leftPadding = 40;
 
     // Calculate right padding same as in draw()
     const ctx = this.ctx;
@@ -105,7 +105,7 @@ class PriceChart {
     // Reserve space at top for price display
     const priceAreaHeight = 50;
     const verticalPadding = 40;
-    const leftPadding = 0;
+    const leftPadding = 40;
 
     // Calculate right padding to accommodate centered price text at the rightmost point
     // Measure the approximate width of price + USD text
