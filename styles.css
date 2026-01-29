@@ -406,6 +406,8 @@ main {
 
   .projects-row .project-text {
     display: flex;
+    flex-direction: row;
+    /* Force horizontal layout */
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
