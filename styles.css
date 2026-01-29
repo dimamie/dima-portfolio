@@ -241,6 +241,11 @@ main {
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
+[data-project="calendar"] .project-preview {
+  max-width: clamp(55%, 70%, 80%);
+  max-height: clamp(55%, 70%, 80%);
+}
+
 .project-image.is-cutout {
   align-items: flex-end !important;
 }
