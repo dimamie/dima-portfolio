@@ -303,6 +303,14 @@ main {
   margin: 0;
   font-weight: 400;
   letter-spacing: -0.03em;
+  border-bottom: 1px solid var(--underline);
+  width: fit-content;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.projects-row .project-name:hover {
+  opacity: 0.7;
 }
 
 .projects-row .project-category {
