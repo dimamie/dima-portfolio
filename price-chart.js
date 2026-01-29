@@ -23,10 +23,11 @@ class PriceChart {
       const date = new Date(today);
       date.setDate(date.getDate() - (days - i));
 
-      // Random walk with slight upward bias
-      const change = (Math.random() - 0.45) * 8;
-      price += change;
-      price = Math.max(150, Math.min(300, price)); // Keep within bounds
+      // Random walk with a guaranteed upward trend and some noise
+      const trend = 1.2; // Daily upward push
+      const noise = (Math.random() - 0.5) * 8; // Random fluctuation
+      price += trend + noise;
+      price = Math.max(150, Math.min(450, price)); // Expand bounds for growth
 
       data.push({
         date: date,

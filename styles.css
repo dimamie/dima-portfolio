@@ -242,8 +242,8 @@ main {
 }
 
 [data-project="calendar"] .project-preview {
-  max-width: clamp(55%, 70%, 80%);
-  max-height: clamp(55%, 70%, 80%);
+  max-width: clamp(70%, 85%, 95%);
+  max-height: clamp(70%, 85%, 95%);
 }
 
 .project-image.is-cutout {
