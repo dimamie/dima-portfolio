@@ -74,7 +74,7 @@ class PriceChart {
     const samplePriceWidth = ctx.measureText('999.99').width;
     ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
-    const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
+    const priceTextWidth = samplePriceWidth + 0 + sampleUsdWidth;
     const rightPadding = Math.max(40, priceTextWidth / 2 + 20); // Just enough padding for centering
 
     const chartWidth = this.width - leftPadding - rightPadding;
@@ -113,7 +113,7 @@ class PriceChart {
     const samplePriceWidth = ctx.measureText('999.99').width;
     ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
-    const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
+    const priceTextWidth = samplePriceWidth + 0 + sampleUsdWidth;
     const rightPadding = Math.max(40, priceTextWidth / 2 + 20); // Just enough padding for centering
 
     const chartWidth = width - leftPadding - rightPadding;
@@ -235,7 +235,7 @@ class PriceChart {
     // Calculate centered position for price + USD combo
     ctx.font = '13px Inter, sans-serif';
     const usdWidth = ctx.measureText('USD').width;
-    const totalWidth = priceWidth + 2 + usdWidth;
+    const totalWidth = priceWidth + 0 + usdWidth;
 
     // Constrain position to keep text within bounds (only left edge, right has enough padding)
     let constrainedX = priceX;
@@ -255,7 +255,7 @@ class PriceChart {
     ctx.font = '12px Inter, sans-serif';
     ctx.letterSpacing = '0';
     ctx.fillStyle = '#9a9aa3';
-    ctx.fillText('USD', startX + priceWidth + 2, verticalPadding + 10);
+    ctx.fillText('USD', startX + priceWidth + 0, verticalPadding + 10);
 
     // Draw percentage change below, centered
     ctx.textAlign = 'center';
