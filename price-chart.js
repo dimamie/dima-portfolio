@@ -75,7 +75,7 @@ class PriceChart {
     ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
     const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
-    const rightPadding = Math.max(80, priceTextWidth + 40); // Significantly more padding for centering
+    const rightPadding = Math.max(40, priceTextWidth / 2 + 20); // Just enough padding for centering
 
     const chartWidth = this.width - leftPadding - rightPadding;
     const pointSpacing = chartWidth / (this.data.length - 1);
@@ -114,7 +114,7 @@ class PriceChart {
     ctx.font = '13px Inter, sans-serif';
     const sampleUsdWidth = ctx.measureText('USD').width;
     const priceTextWidth = samplePriceWidth + 2 + sampleUsdWidth;
-    const rightPadding = Math.max(80, priceTextWidth + 40); // Significantly more padding for centering
+    const rightPadding = Math.max(40, priceTextWidth / 2 + 20); // Just enough padding for centering
 
     const chartWidth = width - leftPadding - rightPadding;
     const chartHeight = height - verticalPadding * 2 - priceAreaHeight;
