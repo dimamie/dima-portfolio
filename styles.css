@@ -427,7 +427,8 @@ main {
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
-    gap: 1rem;
+    gap: 4rem;
+    /* Increased gap to force wrapping */
   }
 
   .projects-row .project-name {
