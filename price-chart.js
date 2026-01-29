@@ -45,6 +45,21 @@ class PriceChart {
     this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
     this.canvas.addEventListener('mouseleave', () => this.handleMouseLeave());
 
+    // Touch events
+    this.canvas.addEventListener('touchstart', (e) => {
+      if (e.cancelable) e.preventDefault();
+      this.handleTouch(e);
+    }, { passive: false });
+
+    this.canvas.addEventListener('touchmove', (e) => {
+      if (e.cancelable) e.preventDefault();
+      this.handleTouch(e);
+    }, { passive: false });
+
+    this.canvas.addEventListener('touchend', () => {
+      this.handleMouseLeave();
+    });
+
     this.draw();
   }
 
@@ -63,10 +78,22 @@ class PriceChart {
     this.draw();
   }
 
+  handleTouch(e) {
+    if (e.touches && e.touches[0]) {
+      const touch = e.touches[0];
+      const rect = this.canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      this.processInteraction(x);
+    }
+  }
+
   handleMouseMove(e) {
     const rect = this.canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
+    this.processInteraction(x);
+  }
 
+  processInteraction(x) {
     const leftPadding = 40;
 
     // Calculate right padding same as in draw()

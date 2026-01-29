@@ -404,6 +404,17 @@ main {
     padding-top: 0;
   }
 
+  .projects-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* Significant gap between projects */
+    padding-inline: 32px !important;
+    /* Consistent padding */
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
   .projects-row .project-text {
     display: flex;
     flex-direction: row;
