@@ -407,8 +407,8 @@ main {
   .projects-row {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    /* Reduced gap between projects */
+    gap: 48px;
+    /* Increased gap between projects */
     padding-inline: 32px !important;
     /* Consistent padding */
     width: 100%;
