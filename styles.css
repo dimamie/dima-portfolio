@@ -52,7 +52,7 @@ main {
 
 /* Header */
 .header {
-  padding: 24px 0 0 0;
+  padding: 24px 0 64px 0;
   background: var(--bg);
 }
 
