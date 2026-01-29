@@ -377,7 +377,8 @@ main {
   }
 
   .header {
-    padding: 24px 0 32px 0;
+    padding: 24px 0 80px 0;
+    /* Significantly increased gap below header */
   }
 
   .header .container {
@@ -403,24 +404,25 @@ main {
     padding-top: 0;
   }
 
-  .projects-row {
-    margin-top: 0;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 0;
-    padding-inline: 32px;
+  .projects-row .project-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    gap: 1rem;
   }
 
-  .projects-row .project-item:first-child {
-    flex: none;
-    min-width: auto;
-    width: 100%;
+  .projects-row .project-name {
+    font-size: 22px;
+    /* Increased font size */
+    flex: 1;
+    /* Fill property */
   }
 
-  .projects-row .project-item:not(:first-child) {
-    flex: none;
-    min-width: auto;
-    width: 100%;
+  .projects-row .project-category {
+    flex: 0 0 auto;
+    /* Hug property */
+    text-align: right;
   }
 
   .projects-row .project-image {
