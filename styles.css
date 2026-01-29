@@ -108,6 +108,7 @@ main {
   display: flex;
   align-items: center;
   gap: 0;
+  letter-spacing: -0.02em;
 }
 
 .header-icon {
