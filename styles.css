@@ -124,8 +124,10 @@ main {
 
 .header-current a {
   color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--underline);
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
   transition: opacity 0.3s ease;
 }
 
@@ -303,8 +305,10 @@ main {
   margin: 0;
   font-weight: 400;
   letter-spacing: -0.03em;
-  border-bottom: 1px solid var(--underline);
-  width: fit-content;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
   transition: opacity 0.3s ease;
   cursor: pointer;
 }
