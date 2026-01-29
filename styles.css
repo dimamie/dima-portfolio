@@ -407,12 +407,17 @@ main {
   .projects-row {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
-    /* Significant gap between projects */
+    gap: 32px;
+    /* Reduced gap between projects */
     padding-inline: 32px !important;
     /* Consistent padding */
     width: 100%;
     margin-bottom: 2rem;
+  }
+
+  .projects-row .project-item {
+    gap: 12px;
+    /* Slightly increased gap between image and text */
   }
 
   .projects-row .project-text {
