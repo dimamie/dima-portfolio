@@ -135,8 +135,8 @@ class PriceChart {
 
     // Draw gradient fill
     const gradient = ctx.createLinearGradient(0, chartTop, 0, height - verticalPadding);
-    gradient.addColorStop(0, 'rgba(34, 197, 94, 0.15)');
-    gradient.addColorStop(1, 'rgba(34, 197, 94, 0)');
+    gradient.addColorStop(0, 'rgba(8, 170, 84, 0.15)');
+    gradient.addColorStop(1, 'rgba(8, 170, 84, 0)');
 
     // Helper to get control points for smooth cubic bezier
     const getControlPoints = (p0, p1, p2, t = 0.2) => {
@@ -195,7 +195,7 @@ class PriceChart {
 
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.strokeStyle = '#22c55e';
+    ctx.strokeStyle = '#08AA54';
     ctx.lineWidth = 2.5;
     ctx.stroke();
 
@@ -260,7 +260,7 @@ class PriceChart {
     // Draw percentage change below, centered
     ctx.textAlign = 'center';
     ctx.font = '11px Inter, sans-serif';
-    ctx.fillStyle = changePercent >= 0 ? '#22c55e' : '#ef4444';
+    ctx.fillStyle = changePercent >= 0 ? '#08AA54' : '#ef4444';
     const changeText = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
     ctx.fillText(changeText, constrainedX, verticalPadding + 27);
 
@@ -280,7 +280,7 @@ class PriceChart {
     // Draw circle at point
     ctx.beginPath();
     ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#22c55e';
+    ctx.fillStyle = '#08AA54';
     ctx.fill();
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 2;
