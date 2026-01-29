@@ -305,6 +305,8 @@ main {
 }
 
 .spotify-widget {
+  min-height: 32px;
+  /* Prevent layout jump */
   margin-top: 0;
   font-size: 14px;
   color: var(--muted);
