@@ -447,4 +447,11 @@ main {
     height: clamp(300px, 40vh, 500px);
   }
 
+  .project-image.is-cutout .project-preview {
+    object-fit: contain;
+    max-width: 85%;
+    max-height: 100%;
+    object-position: bottom;
+  }
+
 }
