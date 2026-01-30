@@ -114,13 +114,33 @@ html {
 }
 
 .visual-image {
-    width: 1000%;
-    /* Stretch to ensure contain fills width if possible, but contained */
     width: 100%;
     height: 100%;
+    display: block;
+}
+
+/* Image 1: Clipped to bottom and center */
+.img-spec {
+    object-fit: cover;
+    object-position: bottom center;
+}
+
+/* Image 2: Clipped to bottom and right */
+.img-tabview {
+    object-fit: cover;
+    object-position: bottom right;
+}
+
+/* Image 3: Center and center */
+.img-rollover {
     object-fit: contain;
-    /* Don't clip UI elements */
-    object-position: bottom;
+    object-position: center;
+}
+
+/* Image 4: Clipped to bottom */
+.img-tooltip {
+    object-fit: cover;
+    object-position: bottom center;
 }
 
 .grid-text {
