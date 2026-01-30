@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XTB Fintech Projects — Dima Miedzianowski</title>
+    <meta name="description" content="Detail page for Fintech projects @ xtb">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=103">
+    <link rel="stylesheet" href="project-page.css">
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+</head>
+
+<body>
+
+    <main id="top">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-profile">
+                        <img src="assets/avatar.JPG" alt="Dima Miedzianowski" class="header-avatar">
+                        <a href="index.html" class="header-name"
+                            style="text-decoration: none; border: none; opacity: 1;">dima mie</a>
+                    </div>
+                </div>
+                <div class="header-email">
+                    <span class="email-text">dzimaartizd@gmail.com</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="container">
+            <div class="project-layout">
+                <!-- Sidebar (30%) -->
+                <aside class="project-sidebar">
+                    <nav class="toc-nav">
+                        <ul class="toc-list">
+                            <li><a href="#specification" class="toc-link is-active">Instrument specification</a></li>
+                            <li><a href="#education" class="toc-link">Education</a></li>
+                            <li><a href="#ai-help" class="toc-link">AI Help center</a></li>
+                            <li><a href="#instrument-page" class="toc-link">Instrument page</a></li>
+                            <li><a href="#calculator" class="toc-link">Retirement account calculator</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Content (70%) -->
+                <article class="project-content">
+
+                    <!-- Section: Instrument Specification -->
+                    <section id="specification" class="content-section">
+                        <div class="section-grid">
+                            <div class="grid-item is-full">
+                                <div class="visual-container">
+                                    <img src="https://images.unsplash.com/photo-1611974717482-48a66503b216?auto=format&fit=crop&q=80&w=2000"
+                                        alt="Specification UI" class="visual-image">
+                                </div>
+                                <div class="grid-text">
+                                    A public-facing specification of all financial instruments available on the
+                                    platform. Designed to balance regulatory completeness with clarity.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section: Education -->
+                    <section id="education" class="content-section">
+                        <div class="section-grid">
+                            <div class="grid-item is-half">
+                                <div class="visual-container">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80&w=1000"
+                                        alt="Education UI" class="visual-image">
+                                </div>
+                                <div class="grid-text">
+                                    Replaced multiple accordion-hidden tables with a single unified table with tab
+                                    selection.
+                                </div>
+                            </div>
+                            <div class="grid-item is-tall">
+                                <div class="visual-container">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+                                        alt="Rollover UI" class="visual-image">
+                                </div>
+                                <div class="grid-text">
+                                    Redesigned rollover table presented as a monthly calendar view.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section: AI Help Center -->
+                    <section id="ai-help" class="content-section">
+                        <div class="section-grid">
+                            <div class="grid-item is-full">
+                                <div class="visual-container">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2000"
+                                        alt="AI Help UI" class="visual-image">
+                                </div>
+                                <div class="grid-text">
+                                    Dedicated tooltip system for explaining advanced instrument concepts powered by AI
+                                    integration.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div id="spotify-last-played" class="spotify-widget" aria-live="polite"></div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // Simple ScrollSpy Logic
+        const sections = document.querySelectorAll('.content-section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('is-active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('is-active');
+                }
+            });
+        });
+    </script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
