@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .project-container {
     width: 100%;
     max-width: 100%;
@@ -29,8 +33,10 @@
 .project-sidebar {
     flex: 0 0 30%;
     position: sticky;
-    top: 40px;
+    top: 120px;
+    /* Increased top offset to clear header */
     height: fit-content;
+    align-self: flex-start;
 }
 
 .toc-list {
