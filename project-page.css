@@ -23,7 +23,8 @@ html {
 
 .project-layout {
     display: flex;
-    gap: 32px;
+    justify-content: space-between;
+    /* Distribute space between sidebar and content */
     padding-top: 40px;
     padding-bottom: 80px;
     align-items: flex-start;
@@ -31,7 +32,8 @@ html {
 
 /* Sidebar / Table of Contents */
 .project-sidebar {
-    flex: 0 0 35%;
+    flex: 0 0 280px;
+    /* Fixed sidebar width */
     position: sticky;
     top: 120px;
     /* Increased top offset to clear header */
@@ -63,8 +65,9 @@ html {
 
 /* Content Area */
 .project-content {
-    flex: 1;
-    max-width: 1000px;
+    flex: 0 1 1000px;
+    /* Cap width but allow it to shrink */
+    width: 100%;
 }
 
 .content-grid-main {
