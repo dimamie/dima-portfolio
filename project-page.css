@@ -125,9 +125,9 @@ html {
     object-position: bottom center;
 }
 
-/* Image 2: Clipped to bottom and right */
+/* Image 2: Pushed to bottom and right, fully visible */
 .img-tabview {
-    object-fit: cover;
+    object-fit: contain;
     object-position: bottom right;
 }
 
@@ -137,9 +137,9 @@ html {
     object-position: center;
 }
 
-/* Image 4: Clipped to bottom */
+/* Image 4: Pushed to bottom, fully visible */
 .img-tooltip {
-    object-fit: cover;
+    object-fit: contain;
     object-position: bottom center;
 }
 
