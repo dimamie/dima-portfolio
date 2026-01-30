@@ -64,22 +64,12 @@ html {
 /* Content Area */
 .project-content {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
 }
 
-.content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-/* Grid System */
-.section-grid {
+.content-grid-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 80px 16px;
 }
 
 .grid-item {
@@ -96,10 +86,9 @@ html {
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    /* Align to bottom */
+    /* Pin to bottom */
     justify-content: center;
     padding: 0;
-    /* Remove padding for edge-to-edge clipping */
     width: 100%;
 }
 
@@ -125,10 +114,12 @@ html {
 }
 
 .visual-image {
+    width: 1000%;
+    /* Stretch to ensure contain fills width if possible, but contained */
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Use cover to ensure clipping to bottom */
+    object-fit: contain;
+    /* Don't clip UI elements */
     object-position: bottom;
 }
 
