@@ -163,6 +163,12 @@ html {
     object-position: bottom center;
 }
 
+/* Image 5: Mobile UI clipped to bottom */
+.img-mobile {
+    object-fit: cover;
+    object-position: bottom center;
+}
+
 .grid-text {
     font-size: 16px;
     color: var(--muted-weak);
