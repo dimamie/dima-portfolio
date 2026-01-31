@@ -59,8 +59,8 @@ html {
     /* -3% as requested */
     display: flex;
     align-items: center;
-    height: 40px;
-    /* 40px hitbox */
+    height: 32px;
+    /* 32px hitbox */
     position: relative;
     padding-left: 0;
     transition: color 0.2s ease;

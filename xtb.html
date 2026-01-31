@@ -191,7 +191,7 @@
             // Animate next active in
             if (nextActive) {
                 nextActive.classList.add('is-active');
-                gsap.to(nextActive.querySelector('span'), { x: 14, duration: 0.4, ease: "power2.out" }); // 6px dot + 8px gap = 14px
+                gsap.to(nextActive.querySelector('span'), { x: 14, duration: 0.4, ease: "power2.out" });
                 gsap.to(nextActive, { "--dot-opacity": 1, "--dot-scale": 1, duration: 0.4, ease: "back.out(2)" });
                 currentActive = nextActive;
             }
@@ -203,15 +203,32 @@
             gsap.set(currentActive, { "--dot-opacity": 1, "--dot-scale": 1 });
         }
 
-        window.addEventListener('scroll', () => {
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-                if (window.scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+        // Use ScrollTrigger for precise section detection
+        sections.forEach(section => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 250px", // Trigger when section is 250px from top
+                end: "bottom 250px",
+                onEnter: () => updateToc(section.id),
+                onEnterBack: () => updateToc(section.id)
+            });
+        });
+
+        // Add click handlers for smooth navigation and immediate feedback
+        tocLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 120, // Align with scroll-margin-top
+                        behavior: 'smooth'
+                    });
+                    updateToc(targetId);
                 }
             });
-            if (current) updateToc(current);
         });
     </script>
     <script src="script.js" defer></script>
