@@ -16,16 +16,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 1. Header Content
-  const headerContent = document.querySelector('.header-content');
-  if (headerContent) {
-    tl.from(headerContent, {
+  // 1. Header Elements (Profile / Project Info)
+  const headerProfile = document.querySelector('.header-profile');
+  const projectInfo = document.querySelector('.header-project-info');
+  const headerContent = document.querySelector('.header-content'); // For index page
+
+  if (headerProfile || projectInfo || headerContent) {
+    tl.from([headerProfile, projectInfo, headerContent].filter(Boolean), {
       opacity: 0,
-      y: 20
+      y: 20,
+      stagger: 0.1
     });
   }
 
-  // 2. Header Email (slight delay after main header)
+  // 2. Header Email (slight delay)
   const headerEmail = document.querySelector('.header-email');
   if (headerEmail) {
     tl.from(headerEmail, {
@@ -34,17 +38,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }, "-=0.6");
   }
 
-  // 3. Project Items (staggered entry)
+  // 3. Project Sidebars (ToC)
+  const projectSidebar = document.querySelector('.project-sidebar');
+  if (projectSidebar) {
+    tl.from(projectSidebar, {
+      opacity: 0,
+      x: -20
+    }, "-=0.6");
+  }
+
+  // 4. Grid Items / Project Items (staggered entry)
   const projectItems = document.querySelectorAll('.project-item');
-  if (projectItems.length > 0) {
-    tl.from(projectItems, {
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  if (projectItems.length > 0 || gridItems.length > 0) {
+    tl.from([...projectItems, ...gridItems], {
       opacity: 0,
       y: 30,
-      stagger: 0.15
+      stagger: 0.1
     }, "-=0.4");
   }
 
-  // 4. Footer
+  // 5. Footer
   const footer = document.querySelector('.footer');
   if (footer) {
     tl.from(footer, {
