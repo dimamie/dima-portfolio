@@ -91,7 +91,7 @@ html {
 
 /* Content Area */
 .project-content {
-    flex: 0 1 1000px;
+    flex: 0 1 1400px;
     /* Cap width but allow it to shrink */
     width: 100%;
 }
@@ -110,7 +110,7 @@ html {
 }
 
 .header-content-area {
-    flex: 0 1 1000px;
+    flex: 0 1 1400px;
     /* Matching .project-content */
     width: 100%;
     display: flex;
