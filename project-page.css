@@ -171,9 +171,9 @@ html {
     object-position: bottom center;
 }
 
-/* Image 5: Mobile UI clipped to bottom */
+/* Image 5: Mobile UI fully visible, pinned to bottom */
 .img-mobile {
-    object-fit: cover;
+    object-fit: contain;
     object-position: bottom center;
 }
 
