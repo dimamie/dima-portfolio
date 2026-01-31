@@ -71,9 +71,25 @@ html {
 }
 
 .content-grid-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 80px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.grid-columns-wrapper {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.column-left,
+.column-right {
+    flex: 1;
+    /* Split 50/50 */
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* Same vertical gap as main grid */
 }
 
 .grid-item {
@@ -98,7 +114,7 @@ html {
 
 /* Full Width (2 columns) */
 .grid-item.is-full {
-    grid-column: span 2;
+    width: 100%;
 }
 
 .grid-item.is-full .visual-container {
@@ -180,5 +196,15 @@ html {
 
     .grid-item.is-full {
         grid-column: span 1;
+    }
+
+    .grid-columns-wrapper {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .column-left,
+    .column-right {
+        gap: 60px;
     }
 }
