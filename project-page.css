@@ -35,7 +35,7 @@ html {
     flex: 0 0 280px;
     /* Fixed sidebar width */
     position: sticky;
-    top: 24px;
+    top: 32px;
     /* Compact top offset to clear viewport */
     height: fit-content;
     align-self: flex-start;
