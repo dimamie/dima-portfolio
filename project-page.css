@@ -35,8 +35,8 @@ html {
     flex: 0 0 280px;
     /* Fixed sidebar width */
     position: sticky;
-    top: 120px;
-    /* Increased top offset to clear header */
+    top: 24px;
+    /* Compact top offset to clear viewport */
     height: fit-content;
     align-self: flex-start;
 }
