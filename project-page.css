@@ -73,7 +73,6 @@ html {
     width: 6px;
     height: 6px;
     background: #F90103;
-    /* Precise red color requested */
     border-radius: 50%;
     opacity: var(--dot-opacity, 0);
     transform: scale(var(--dot-scale, 0));
