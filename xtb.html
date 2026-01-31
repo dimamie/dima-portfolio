@@ -172,47 +172,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        // GSAP ScrollSpy Logic
-        const sections = document.querySelectorAll('.content-section');
+        // Static ToC Initialization (Disabling ScrollSpy as requested)
         const tocLinks = document.querySelectorAll('.toc-link');
         let currentActive = document.querySelector('.toc-link.is-active');
 
-        function updateToc(targetId) {
-            const nextActive = document.querySelector(`.toc-link[href="#${targetId}"]`);
-            if (nextActive === currentActive) return;
-
-            // Animate previous active out
-            if (currentActive) {
-                currentActive.classList.remove('is-active');
-                gsap.to(currentActive.querySelector('span'), { x: 0, duration: 0.4, ease: "power2.out" });
-                gsap.to(currentActive, { "--dot-opacity": 0, "--dot-scale": 0, duration: 0.3, ease: "power2.inOut" });
-            }
-
-            // Animate next active in
-            if (nextActive) {
-                nextActive.classList.add('is-active');
-                gsap.to(nextActive.querySelector('span'), { x: 16, duration: 0.4, ease: "power2.out" });
-                gsap.to(nextActive, { "--dot-opacity": 1, "--dot-scale": 1, duration: 0.4, ease: "back.out(2)" });
-                currentActive = nextActive;
-            }
-        }
-
-        // Initialize state for the first active item
+        // Initialize state for the first active item only (static)
         if (currentActive) {
-            gsap.set(currentActive.querySelector('span'), { x: 16 });
+            gsap.set(currentActive.querySelector('span'), { x: 14 }); // 6px dot + 8px gap
             gsap.set(currentActive, { "--dot-opacity": 1, "--dot-scale": 1 });
         }
-
-        window.addEventListener('scroll', () => {
-            let current = sections[0].getAttribute('id');
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-            updateToc(current);
-        });
     </script>
     <script src="script.js" defer></script>
 </body>

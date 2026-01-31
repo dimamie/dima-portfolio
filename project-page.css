@@ -72,8 +72,8 @@ html {
     left: 0;
     width: 6px;
     height: 6px;
-    background: #ff3b30;
-    /* iOS-style red dot */
+    background: #F90103;
+    /* Precise red color requested */
     border-radius: 50%;
     opacity: var(--dot-opacity, 0);
     transform: scale(var(--dot-scale, 0));
