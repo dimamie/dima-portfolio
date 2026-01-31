@@ -25,7 +25,7 @@ html {
     display: flex;
     justify-content: space-between;
     /* Distribute space between sidebar and content */
-    padding-top: 40px;
+    padding-top: 242px;
     padding-bottom: 80px;
     align-items: flex-start;
 }
