@@ -180,6 +180,8 @@ html {
 
 .grid-text p.is-heading {
     color: var(--text);
+    font-size: 26px;
+    line-height: 34px;
 }
 
 /* Horizontal alignment for paragraphs under large tiles */
