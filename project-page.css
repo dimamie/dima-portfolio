@@ -70,12 +70,13 @@ html {
     content: '';
     position: absolute;
     left: 0;
+    top: 50%;
     width: 6px;
     height: 6px;
     background: #F90103;
     border-radius: 50%;
     opacity: var(--dot-opacity, 0);
-    transform: scale(var(--dot-scale, 0));
+    transform: translateY(-50%) scale(var(--dot-scale, 0));
 }
 
 .toc-link span {
