@@ -331,8 +331,8 @@ main {
   justify-content: flex-start;
   align-items: center;
   margin-inline: auto;
-  padding-left: clamp(1rem, 3vw, 2rem);
-  padding-right: clamp(2rem, 5vw, 4rem);
+  padding-left: clamp(2rem, 5vw, 3rem);
+  padding-right: clamp(2rem, 6vw, 6rem);
   width: 100%;
 }
 
