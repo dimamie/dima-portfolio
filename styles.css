@@ -44,7 +44,7 @@ main {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 1.5rem);
 }
@@ -204,7 +204,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(0.5rem, 1vw, 1rem);
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin-inline: auto;
   padding-left: clamp(2rem, 5vw, 3rem);
   padding-right: clamp(2rem, 6vw, 6rem);
