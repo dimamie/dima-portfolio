@@ -96,17 +96,40 @@ html {
     width: 100%;
 }
 
-.project-header-row {
-    margin-bottom: 60px;
+/* Header Alignment for Project Page */
+.header-project-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.project-main-title {
-    font-size: 26px;
-    line-height: 34px;
-    letter-spacing: -0.03em;
+.header-sidebar-area {
+    flex: 0 0 280px;
+    /* Matching .project-sidebar */
+}
+
+.header-content-area {
+    flex: 0 1 1000px;
+    /* Matching .project-content */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-project-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-header-tag {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
     color: var(--text);
-    font-weight: 500;
-    margin: 0;
+    text-transform: lowercase;
 }
 
 .content-grid-main {
