@@ -168,7 +168,24 @@ html {
     color: var(--muted-weak);
     line-height: 26px;
     letter-spacing: -0.03em;
-    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Vertical gap for small/mid tiles */
+}
+
+/* Horizontal alignment for paragraphs under large tiles */
+.grid-item.is-full .grid-text {
+    flex-direction: row;
+    gap: 80px;
+    /* Matches the column gap below */
+    max-width: 100%;
+}
+
+.grid-item.is-full .grid-text p {
+    flex: 1;
+    /* Standardize width to match columns beneath */
+    margin: 0;
 }
 
 /* Mobile Adjustments */
