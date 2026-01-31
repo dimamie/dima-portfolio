@@ -4,7 +4,7 @@ html {
 
 .project-container {
     width: 100%;
-    max-width: 1700px;
+    max-width: 1400px;
     margin: 0 auto;
     padding-left: clamp(2rem, 5vw, 3rem);
     padding-right: clamp(2rem, 6vw, 6rem);
@@ -92,7 +92,7 @@ html {
 
 /* Content Area */
 .project-content {
-    flex: 0 1 1700px;
+    flex: 0 1 1400px;
     /* Cap width but allow it to shrink */
     width: 100%;
 }
@@ -111,7 +111,7 @@ html {
 }
 
 .header-content-area {
-    flex: 0 1 1700px;
+    flex: 0 1 1400px;
     /* Matching .project-content */
     width: 100%;
     display: flex;
