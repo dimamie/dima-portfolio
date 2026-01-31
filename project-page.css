@@ -96,6 +96,19 @@ html {
     width: 100%;
 }
 
+.project-header-row {
+    margin-bottom: 60px;
+}
+
+.project-main-title {
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    font-weight: 500;
+    margin: 0;
+}
+
 .content-grid-main {
     display: flex;
     flex-direction: column;
