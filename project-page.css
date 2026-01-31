@@ -78,7 +78,7 @@ html {
 
 .grid-columns-wrapper {
     display: flex;
-    gap: 16px;
+    gap: 80px;
     width: 100%;
 }
 
