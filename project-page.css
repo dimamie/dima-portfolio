@@ -115,6 +115,8 @@ html {
 /* Full Width (2 columns) */
 .grid-item.is-full {
     width: 100%;
+    gap: 24px;
+    /* Increased gap for main heading */
 }
 
 .grid-item.is-full .visual-container {
@@ -125,6 +127,12 @@ html {
 .grid-item.is-half .visual-container {
     aspect-ratio: 1 / 1;
     max-height: 300px;
+}
+
+/* Mid Width (1 column) - Medium Height */
+.grid-item.is-mid .visual-container {
+    aspect-ratio: 1 / 1.1;
+    max-height: 400px;
 }
 
 /* Tall Half Width (1 column) */
