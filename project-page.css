@@ -146,6 +146,10 @@ html {
     opacity: 0.7;
 }
 
+.content-section {
+    padding-bottom: 64px;
+}
+
 .content-grid-main {
     display: flex;
     flex-direction: column;
