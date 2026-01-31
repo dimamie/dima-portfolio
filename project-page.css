@@ -47,15 +47,41 @@ html {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
+    /* No gap between items as requested */
 }
 
 .toc-link {
     text-decoration: none;
     color: var(--muted);
     font-size: 16px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
+    /* -3% as requested */
+    display: flex;
+    align-items: center;
+    height: 40px;
+    /* 40px hitbox */
+    position: relative;
+    padding-left: 0;
     transition: color 0.2s ease;
+}
+
+.toc-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: #ff3b30;
+    /* iOS-style red dot */
+    border-radius: 50%;
+    opacity: var(--dot-opacity, 0);
+    transform: scale(var(--dot-scale, 0));
+}
+
+.toc-link span {
+    display: inline-block;
+    will-change: transform;
 }
 
 .toc-link:hover,
