@@ -59,11 +59,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-inline: 0;
+  margin-inline: auto;
   padding-left: clamp(2rem, 5vw, 3rem);
   padding-right: clamp(2rem, 6vw, 6rem);
   width: 100%;
-  max-width: 100%;
 }
 
 .header-content {
@@ -205,8 +204,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(0.5rem, 1vw, 1rem);
   width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
+  max-width: 1200px;
+  margin-inline: auto;
   padding-left: clamp(2rem, 5vw, 3rem);
   padding-right: clamp(2rem, 6vw, 6rem);
 }
@@ -331,11 +330,10 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-inline: 0;
+  margin-inline: auto;
   padding-left: clamp(1rem, 3vw, 2rem);
   padding-right: clamp(2rem, 5vw, 4rem);
   width: 100%;
-  max-width: 100%;
 }
 
 .spotify-widget {
