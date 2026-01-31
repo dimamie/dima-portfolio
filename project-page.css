@@ -130,6 +130,21 @@ html {
     letter-spacing: -0.02em;
     color: var(--text);
     text-transform: lowercase;
+    display: flex;
+    align-items: center;
+}
+
+.project-header-tag a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+    transition: opacity 0.3s ease;
+}
+
+.project-header-tag a:hover {
+    opacity: 0.7;
 }
 
 .content-grid-main {
