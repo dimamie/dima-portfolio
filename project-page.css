@@ -314,7 +314,37 @@ html {
 @media (max-width: 900px) {
     .project-layout {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .header-project-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        /* Match index.html tight spacing */
+    }
+
+    .header-sidebar-area {
+        flex: 0 0 auto;
+        /* Don't stretch */
+        width: 100%;
+    }
+
+    .header-content-area {
+        flex: 0 0 auto;
+        /* Don't stretch */
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        /* Flatten gap */
+    }
+
+    .header-email {
+        margin-top: -1px;
+        /* Match index.html negative margin */
     }
 
     .project-sidebar {
@@ -329,12 +359,18 @@ html {
         gap: 60px;
     }
 
-    .section-grid {
-        grid-template-columns: 1fr;
+    .content-grid-main {
+        gap: 60px;
     }
 
-    .grid-item.is-full {
-        grid-column: span 1;
+    .grid-item.is-full .grid-text {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .grid-text p.is-heading {
+        font-size: 22px;
+        line-height: 28px;
     }
 
     .grid-columns-wrapper {
