@@ -251,6 +251,18 @@ html {
     object-position: bottom center;
 }
 
+/* Retirement section: centered assets */
+.img-calculator,
+.img-inputs,
+.img-sp {
+    object-fit: contain;
+    object-position: center;
+}
+
+#retirement .visual-container {
+    align-items: center;
+}
+
 /* Image 5: Mobile UI fully visible, pinned to bottom */
 .img-mobile {
     object-fit: contain;
