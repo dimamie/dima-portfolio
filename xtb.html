@@ -321,10 +321,11 @@
         const sections = document.querySelectorAll('.content-section');
         const tocLinks = document.querySelectorAll('.toc-link');
         let currentActive = document.querySelector('.toc-link.is-active');
-        let isManualScroll = false;
+        let manualScrollTarget = null; // Stores target ID if manually scrolling
 
         function updateToc(targetId) {
-            if (isManualScroll && targetId !== window.location.hash.slice(1)) return; // Guard clause
+            // Guard clause: ignore automatic updates if we are manually scrolling to a different target
+            if (manualScrollTarget && targetId !== manualScrollTarget) return;
 
             const nextActive = document.querySelector(`.toc-link[href="#${targetId}"]`);
             if (!nextActive || nextActive === currentActive) return;
@@ -356,10 +357,10 @@
                 start: "top 20%", // When top of section hits 20% of viewport
                 end: "bottom 20%",
                 onEnter: () => {
-                    if (!isManualScroll) updateToc(section.id);
+                    if (!manualScrollTarget) updateToc(section.id);
                 },
                 onEnterBack: () => {
-                    if (!isManualScroll) updateToc(section.id);
+                    if (!manualScrollTarget) updateToc(section.id);
                 }
             });
         });
@@ -372,7 +373,7 @@
                 const targetSection = document.getElementById(targetId);
 
                 if (targetSection) {
-                    isManualScroll = true; // Disable ScrollSpy
+                    manualScrollTarget = targetId; // Lock updates to this target
                     // Update UI immediately for snappiness
                     updateToc(targetId);
 
@@ -385,7 +386,7 @@
                         },
                         ease: "power4.inOut",
                         onComplete: () => {
-                            isManualScroll = false; // Re-enable ScrollSpy
+                            manualScrollTarget = null; // Release lock
                             // Trigger one last update to ensure correctness
                             updateToc(targetId);
                         }
