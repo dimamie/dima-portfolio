@@ -263,6 +263,20 @@ html {
     align-items: center;
 }
 
+/* AI Help Center Assets */
+.img-aihelp,
+.img-sidechat,
+.img-aimobile {
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+.img-airesponse,
+.img-sidebutton {
+    object-fit: contain;
+    object-position: center;
+}
+
 /* Image 5: Mobile UI fully visible, pinned to bottom */
 .img-mobile {
     object-fit: contain;
@@ -301,6 +315,11 @@ html {
 .grid-item.is-full .grid-text>* {
     flex: 1;
     /* Standardize width to match columns beneath */
+}
+
+.grid-item.is-half-width {
+    width: 50%;
+    align-self: flex-start;
 }
 
 /* Vertical stack for the body column in full-width tiles */
@@ -381,5 +400,10 @@ html {
     .column-left,
     .column-right {
         gap: 60px;
+    }
+
+    .grid-item.is-half-width {
+        width: 100%;
+        margin-right: 0;
     }
 }
