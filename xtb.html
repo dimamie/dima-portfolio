@@ -321,8 +321,11 @@
         const sections = document.querySelectorAll('.content-section');
         const tocLinks = document.querySelectorAll('.toc-link');
         let currentActive = document.querySelector('.toc-link.is-active');
+        let isManualScroll = false;
 
         function updateToc(targetId) {
+            if (isManualScroll && targetId !== window.location.hash.slice(1)) return; // Guard clause
+
             const nextActive = document.querySelector(`.toc-link[href="#${targetId}"]`);
             if (!nextActive || nextActive === currentActive) return;
 
@@ -352,8 +355,12 @@
                 trigger: section,
                 start: "top 20%", // When top of section hits 20% of viewport
                 end: "bottom 20%",
-                onEnter: () => updateToc(section.id),
-                onEnterBack: () => updateToc(section.id)
+                onEnter: () => {
+                    if (!isManualScroll) updateToc(section.id);
+                },
+                onEnterBack: () => {
+                    if (!isManualScroll) updateToc(section.id);
+                }
             });
         });
 
@@ -365,6 +372,7 @@
                 const targetSection = document.getElementById(targetId);
 
                 if (targetSection) {
+                    isManualScroll = true; // Disable ScrollSpy
                     // Update UI immediately for snappiness
                     updateToc(targetId);
 
@@ -373,9 +381,14 @@
                         duration: 1.2,
                         scrollTo: {
                             y: targetSection,
-                            offsetY: 120
+                            offsetY: 80 // Matching padding-top
                         },
-                        ease: "power4.inOut"
+                        ease: "power4.inOut",
+                        onComplete: () => {
+                            isManualScroll = false; // Re-enable ScrollSpy
+                            // Trigger one last update to ensure correctness
+                            updateToc(targetId);
+                        }
                     });
                 }
             });
