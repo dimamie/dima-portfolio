@@ -272,9 +272,21 @@ html {
 }
 
 .img-airesponse,
-.img-sidebutton {
+.img-sidebutton,
+.img-education,
+.img-posits,
+.img-pathsmall,
+.img-pathbig {
     object-fit: contain;
     object-position: center;
+}
+
+.img-aihelp,
+.img-sidechat,
+.img-aimobile,
+.img-education {
+    object-fit: contain;
+    object-position: bottom center;
 }
 
 /* Image 5: Mobile UI fully visible, pinned to bottom */
