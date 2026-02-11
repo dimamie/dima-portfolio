@@ -263,17 +263,11 @@ html {
     align-items: center;
 }
 
-/* AI Help Center Assets */
-.img-aihelp,
-.img-sidechat,
-.img-aimobile {
-    object-fit: contain;
-    object-position: bottom center;
-}
+/* AI Help Center & Education Assets */
 
+/* Centered Assets */
 .img-airesponse,
 .img-sidebutton,
-.img-education,
 .img-posits,
 .img-pathsmall,
 .img-pathbig {
@@ -281,6 +275,7 @@ html {
     object-position: center;
 }
 
+/* Bottom-Aligned Assets */
 .img-aihelp,
 .img-sidechat,
 .img-aimobile,
