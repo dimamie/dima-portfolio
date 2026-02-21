@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dima Miedzianowski</title>
+  <meta name="description" content="Portfolio of Dima Miedzianowski">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=103">
+  <link rel="stylesheet" href="price-chart.css">
+  <link rel="icon" type="image/png" href="assets/FavIcon.png">
+  <link rel="apple-touch-icon" href="assets/FavIcon.png">
+  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+</head>
+
+<body>
+
+  <main id="top">
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-profile">
+            <img src="assets/avatar.JPG" alt="Dima Miedzianowski" class="header-avatar">
+            <h1 class="header-name">dima mie</h1>
+          </div>
+          <span class="header-bullet">•</span>
+          <div class="header-status">
+            <span class="header-current">currently @
+              <img src="assets/XTBicon.png" alt="XTB" class="header-icon"> <a href="https://www.xtb.com/es"
+                target="_blank" rel="noopener">xtb</a></span>
+          </div>
+        </div>
+        <div class="header-email">
+          <span class="email-text">dzimaartizd@gmail.com</span>
+          <button class="email-copy-btn" aria-label="Copy email to clipboard" title="Copy email">
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section id="projects" class="projects-grid">
+      <div class="projects-row">
+        <div class="project-item">
+          <div class="project-image">
+            <canvas id="price-chart-canvas" class="price-chart-canvas"></canvas>
+          </div>
+          <div class="project-text">
+            <a href="xtb.html" style="text-decoration: none; color: inherit;">
+              <h2 class="project-name">Fintech projects @&nbsp;xtb</h2>
+            </a>
+            <span class="project-category">2023—2025</span>
+          </div>
+        </div>
+        <div class="project-item">
+          <div class="project-image is-cutout">
+            <img src="assets/APPwithHand.png" alt="Word app" class="project-preview" loading="lazy">
+          </div>
+          <div class="project-text">
+            <h2 class="project-name">iOS apps</h2>
+            <span class="project-category">2025</span>
+          </div>
+        </div>
+        <div class="project-item" data-project="calendar">
+          <div class="project-image">
+            <img src="assets/SignUp.png" alt="Sign Up" class="project-preview" loading="lazy">
+          </div>
+          <div class="project-text">
+            <h2 class="project-name">How to approach an interface</h2>
+            <span class="project-category">2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div id="spotify-last-played" class="spotify-widget" aria-live="polite"></div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="price-chart.js"></script>
+  <script src="script.js" defer></script>
+  <script src="codepen-animation.js?v=34" defer></script>
+</body>
+
+</html>
