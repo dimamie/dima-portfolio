@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=103">
-  <link rel="stylesheet" href="price-chart.css">
   <link rel="icon" type="image/png" href="assets/FavIcon.png">
   <link rel="apple-touch-icon" href="assets/FavIcon.png">
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
@@ -43,35 +42,82 @@
     </header>
 
     <section id="projects" class="projects-grid">
+      <style>
+        @media (min-width: 1100px) {
+          .projects-row {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+
+        .projects-row .project-image {
+          background-color: #f5f5f7;
+          /* xTB specific subtle grey */
+        }
+
+        .project-item a {
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          flex-direction: column;
+          gap: inherit;
+          height: 100%;
+        }
+      </style>
       <div class="projects-row">
+        <!-- Tile 1: Instrument Specification -->
         <div class="project-item">
-          <div class="project-image">
-            <canvas id="price-chart-canvas" class="price-chart-canvas"></canvas>
-          </div>
-          <div class="project-text">
-            <a href="xtb.html" style="text-decoration: none; color: inherit;">
-              <h2 class="project-name">Fintech projects @&nbsp;xtb</h2>
-            </a>
-            <span class="project-category">2023—2025</span>
-          </div>
+          <a href="xtb.html#specification">
+            <div class="project-image is-cutout" style="align-items: center !important;">
+              <img src="assets/Xtb/Instrument specification.png" alt="Instrument specification" class="project-preview"
+                loading="lazy" style="object-position: bottom center;">
+            </div>
+            <div class="project-text">
+              <h2 class="project-name">Instrument specification</h2>
+              <span class="project-category">2024</span>
+            </div>
+          </a>
         </div>
+
+        <!-- Tile 2: Retirement Calculator -->
         <div class="project-item">
-          <div class="project-image is-cutout">
-            <img src="assets/APPwithHand.png" alt="Word app" class="project-preview" loading="lazy">
-          </div>
-          <div class="project-text">
-            <h2 class="project-name">iOS apps</h2>
-            <span class="project-category">2025</span>
-          </div>
+          <a href="xtb.html#retirement">
+            <div class="project-image is-cutout" style="align-items: center !important;">
+              <img src="assets/Xtb/Calculator.png" alt="Retirement calculator" class="project-preview" loading="lazy"
+                style="object-position: center; object-fit: contain; max-height: 80%;">
+            </div>
+            <div class="project-text">
+              <h2 class="project-name">Retirement calculator</h2>
+              <span class="project-category">2024</span>
+            </div>
+          </a>
         </div>
-        <div class="project-item" data-project="calendar">
-          <div class="project-image">
-            <img src="assets/SignUp.png" alt="Sign Up" class="project-preview" loading="lazy">
-          </div>
-          <div class="project-text">
-            <h2 class="project-name">How to approach an interface</h2>
-            <span class="project-category">2024</span>
-          </div>
+
+        <!-- Tile 3: AI Help Center -->
+        <div class="project-item">
+          <a href="xtb.html#ai-help">
+            <div class="project-image is-cutout" style="align-items: flex-end !important;">
+              <img src="assets/Xtb/AIHelp.png" alt="AI Help center" class="project-preview" loading="lazy"
+                style="object-position: bottom center;">
+            </div>
+            <div class="project-text">
+              <h2 class="project-name">AI Help center</h2>
+              <span class="project-category">2025</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Tile 4: Education Platform Redesign -->
+        <div class="project-item">
+          <a href="xtb.html#education-redesign">
+            <div class="project-image is-cutout" style="align-items: flex-end !important;">
+              <img src="assets/Xtb/Education.png" alt="Education platform redesign" class="project-preview"
+                loading="lazy" style="object-position: bottom center;">
+            </div>
+            <div class="project-text">
+              <h2 class="project-name">Education platform redesign</h2>
+              <span class="project-category">2025</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -86,7 +132,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="price-chart.js"></script>
   <script src="script.js" defer></script>
   <script src="codepen-animation.js?v=34" defer></script>
 </body>
