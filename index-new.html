@@ -45,7 +45,7 @@
       <style>
         @media (min-width: 1100px) {
           .projects-row {
-            grid-template-columns: 1fr 1fr 1fr 1fr !important;
+            grid-template-columns: 1fr 1.5fr 1fr 1.5fr !important;
           }
         }
 
@@ -64,14 +64,18 @@
           gap: inherit;
           height: 100%;
         }
+
+        .project-image.is-portrait {
+          aspect-ratio: 3 / 4;
+        }
       </style>
       <div class="projects-row">
-        <!-- Tile 1: Instrument Specification -->
+        <!-- Tile 1: Instrument Specification (Portrait) -->
         <div class="project-item">
           <a href="xtb.html#specification">
-            <div class="project-image is-cutout" style="align-items: center !important;">
-              <img src="assets/Xtb/Instrument specification.png" alt="Instrument specification" class="project-preview"
-                loading="lazy" style="object-position: bottom center;">
+            <div class="project-image is-cutout is-portrait" style="align-items: center !important;">
+              <img src="assets/Xtb/Mobile.png" alt="Instrument specification" class="project-preview" loading="lazy"
+                style="object-position: bottom center; max-height: 90%;">
             </div>
             <div class="project-text">
               <h2 class="project-name">Instrument specification</h2>
@@ -94,12 +98,12 @@
           </a>
         </div>
 
-        <!-- Tile 3: AI Help Center -->
+        <!-- Tile 3: AI Help Center (Portrait) -->
         <div class="project-item">
           <a href="xtb.html#ai-help">
-            <div class="project-image is-cutout" style="align-items: flex-end !important;">
-              <img src="assets/Xtb/AIHelp.png" alt="AI Help center" class="project-preview" loading="lazy"
-                style="object-position: bottom center;">
+            <div class="project-image is-cutout is-portrait" style="align-items: flex-end !important;">
+              <img src="assets/Xtb/AIResponse.png" alt="AI Help center" class="project-preview" loading="lazy"
+                style="object-position: center; object-fit: contain; max-height: 80%;">
             </div>
             <div class="project-text">
               <h2 class="project-name">AI Help center</h2>
