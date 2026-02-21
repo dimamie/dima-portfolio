@@ -270,7 +270,9 @@ html {
 .img-sidebutton,
 .img-posits,
 .img-pathsmall,
-.img-pathbig {
+.img-pathbig,
+.img-widget,
+.img-quiz {
     object-fit: contain;
     object-position: center;
 }
@@ -279,7 +281,8 @@ html {
 .img-aihelp,
 .img-sidechat,
 .img-aimobile,
-.img-education {
+.img-education,
+.img-pathmobile {
     object-fit: contain;
     object-position: bottom center;
 }
