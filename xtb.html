@@ -479,24 +479,14 @@
             const nextActive = document.querySelector(`.toc-link[href="#${targetId}"]`);
             if (!nextActive || nextActive === currentActive) return;
 
-            // Animate previous active out
+            // Remove previous active
             if (currentActive) {
                 currentActive.classList.remove('is-active');
-                gsap.to(currentActive.querySelector('span'), { x: 0, duration: 0.4, ease: "power2.out" });
-                gsap.to(currentActive, { "--dot-opacity": 0, "--dot-scale": 0, duration: 0.3, ease: "power2.inOut" });
             }
 
-            // Animate next active in
+            // Set next active
             nextActive.classList.add('is-active');
-            gsap.to(nextActive.querySelector('span'), { x: 14, duration: 0.4, ease: "power2.out" });
-            gsap.to(nextActive, { "--dot-opacity": 1, "--dot-scale": 1, duration: 0.4, ease: "back.out(2)" });
             currentActive = nextActive;
-        }
-
-        // Initialize state for the first active item
-        if (currentActive) {
-            gsap.set(currentActive.querySelector('span'), { x: 14 });
-            gsap.set(currentActive, { "--dot-opacity": 1, "--dot-scale": 1 });
         }
 
         // Use ScrollTrigger for precise section detection
