@@ -82,10 +82,17 @@
         }
 
         .projects-row .project-image {
-          background-color: #f5f5f7;
-          /* xTB specific subtle grey */
-          height: 240px !important;
-          /* Forces all tiles to be same height on desktop */
+          background-color: transparent !important;
+          height: auto !important;
+          padding: 0 !important;
+        }
+
+        .projects-row .project-preview {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          max-height: none !important;
+          display: block;
         }
 
         .project-item a {
@@ -111,9 +118,9 @@
         <!-- Tile 1: Education Platform Redesign -->
         <div class="project-item">
           <a href="xtb.html#education-redesign">
-            <div class="project-image is-cutout" style="align-items: flex-end !important;">
-              <img src="assets/Xtb/Education.png" alt="Education flow redesign" class="project-preview" loading="lazy"
-                style="object-position: bottom center; object-fit: contain; width: 100%; height: auto; max-height: 100%;">
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/Education.png" alt="Education flow redesign" class="project-preview"
+                loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">Education flow redesign</h2>
@@ -121,12 +128,12 @@
           </a>
         </div>
 
-        <!-- Tile 2: Instrument Specification (Portrait) -->
+        <!-- Tile 2: Instrument Specification -->
         <div class="project-item">
           <a href="xtb.html#specification">
-            <div class="project-image is-cutout is-portrait" style="align-items: flex-end !important;">
-              <img src="assets/Xtb/Mobile.png" alt="Instrument specification" class="project-preview" loading="lazy"
-                style="object-position: bottom center; object-fit: contain; width: auto; height: 100%; max-width: 100%;">
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/Specification.png" alt="Instrument specification" class="project-preview"
+                loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">Instrument specification</h2>
@@ -137,9 +144,8 @@
         <!-- Tile 3: AI Help Center -->
         <div class="project-item">
           <a href="xtb.html#ai-help">
-            <div class="project-image is-cutout" style="align-items: flex-end !important;">
-              <img src="assets/Xtb/AIHelp.png" alt="AI Help center" class="project-preview" loading="lazy"
-                style="object-position: bottom center; object-fit: contain; width: 100%; height: auto; max-height: 100%;">
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/AIHelp.png" alt="AI Help center" class="project-preview" loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">AI Help center</h2>
@@ -147,12 +153,12 @@
           </a>
         </div>
 
-        <!-- Tile 4: Retirement Calculator (Portrait) -->
+        <!-- Tile 4: Retirement Calculator -->
         <div class="project-item">
           <a href="xtb.html#retirement">
-            <div class="project-image is-cutout is-portrait" style="align-items: flex-end !important;">
-              <img src="assets/Xtb/CalculatorHP.png" alt="Retirement calculator" class="project-preview" loading="lazy"
-                style="object-position: bottom center; object-fit: contain; width: auto; height: 100%; max-width: 100%;">
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/Calculator.png" alt="Retirement calculator" class="project-preview"
+                loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">Retirement calculator</h2>
@@ -165,9 +171,8 @@
         <!-- Tile 5: Words App -->
         <div class="project-item">
           <a href="#">
-            <div class="project-image is-cutout" style="align-items: center !important;">
-              <img src="assets/APPwithHand.png" alt="Words App" class="project-preview" loading="lazy"
-                style="object-position: center; object-fit: contain; max-height: 80%;">
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/Wordsapp.png" alt="Words App" class="project-preview" loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">Words App</h2>
@@ -178,9 +183,9 @@
         <!-- Tile 6: Simple Meditation app -->
         <div class="project-item">
           <a href="#">
-            <div class="project-image is-cutout" style="align-items: center !important; justify-content: center;">
-              <!-- Waiting for meditation app image -->
-              <span style="opacity: 0.5;">Image coming soon</span>
+            <div class="project-image is-cutout">
+              <img src="assets/MainImages/Meditation.png" alt="Simple Meditation app" class="project-preview"
+                loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">Simple Meditation app</h2>
@@ -191,9 +196,8 @@
         <!-- Tile 7: How to approach an interface -->
         <div class="project-item" data-project="calendar">
           <a href="#">
-            <div class="project-image" style="align-items: center !important;">
-              <img src="assets/SignUp.png" alt="How to approach an interface" class="project-preview" loading="lazy"
-                style="object-position: center; object-fit: contain; max-height: 80%;">
+            <div class="project-image">
+              <img src="assets/SignUp.png" alt="How to approach an interface" class="project-preview" loading="lazy">
             </div>
             <div class="project-text">
               <h2 class="project-name">How to approach an interface</h2>
