@@ -102,10 +102,13 @@
           flex-direction: column;
           gap: 20px !important;
           height: 100%;
+        }
+
+        .project-item .project-image {
           transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .project-item a:hover {
+        .project-item a:hover .project-image {
           transform: translateY(-8px) scale(1.01) rotate(1deg);
         }
 

@@ -309,7 +309,7 @@ main {
   cursor: pointer;
 }
 
-.projects-row .project-name:hover {
+.projects-row .project-item a:hover .project-name {
   opacity: 0.7;
 }
 
