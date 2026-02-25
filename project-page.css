@@ -163,6 +163,7 @@ html {
 
 .content-section {
     padding-bottom: 64px;
+    scroll-margin-top: 60px;
 }
 
 .content-grid-main {
