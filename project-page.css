@@ -24,7 +24,8 @@ html {
 .project-layout {
     display: flex;
     justify-content: space-between;
-    /* Distribute space between sidebar and content */
+    gap: 120px;
+    /* Enforce a strict minimum distance between left and right column */
     padding-top: 60px;
     padding-bottom: 80px;
     align-items: flex-start;
