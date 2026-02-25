@@ -21,6 +21,14 @@ html {
     opacity: 0.7;
 }
 
+.back-home-link {
+    transition: opacity 0.3s ease;
+}
+
+.back-home-link:hover {
+    opacity: 0.7;
+}
+
 .project-layout {
     display: flex;
     justify-content: space-between;
