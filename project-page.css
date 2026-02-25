@@ -42,10 +42,7 @@ html {
     transition: opacity 0.3s ease;
 }
 
-.back-home-link .header-avatar {
-    width: 20px;
-    height: 20px;
-}
+
 
 .project-layout {
     display: flex;
@@ -64,8 +61,8 @@ html {
     position: sticky;
     top: 60px;
     /* Aligns header with the content gap */
-    height: calc(100vh - 120px);
-    /* Viewport minus top/bottom paddings so it stops precisely on the floor */
+    height: calc(100vh - 84px);
+    /* Viewport minus 60px top padding and 24px bottom gap */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
