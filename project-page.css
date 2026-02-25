@@ -35,9 +35,13 @@ html {
     flex: 0 0 280px;
     /* Fixed sidebar width */
     position: sticky;
-    top: 32px;
-    /* Compact top offset to clear viewport */
-    height: fit-content;
+    top: 60px;
+    /* Aligns header with the content gap */
+    height: calc(100vh - 120px);
+    /* Viewport minus top/bottom paddings so it stops precisely on the floor */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-self: flex-start;
 }
 
