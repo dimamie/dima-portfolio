@@ -42,6 +42,11 @@ html {
     transition: opacity 0.3s ease;
 }
 
+.back-home-link .header-avatar {
+    width: 20px;
+    height: 20px;
+}
+
 .project-layout {
     display: flex;
     justify-content: space-between;
