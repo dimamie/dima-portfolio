@@ -519,20 +519,30 @@
             scrollTocToActive(nextActive);
         }
 
-        // Use ScrollTrigger for precise section detection
-        sections.forEach(section => {
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top 20%", // When top of section hits 20% of viewport
-                end: "bottom 20%",
-                onEnter: () => {
-                    if (!manualScrollTarget) updateToc(section.id);
-                },
-                onEnterBack: () => {
-                    if (!manualScrollTarget) updateToc(section.id);
-                }
-            });
-        });
+        // Scroll spy: update TOC based on which section is in view (works reliably when scrolling)
+        const activeThreshold = 120; // px from top of viewport – section above this line is "current"
+        let scrollTicking = false;
+
+        function updateTocFromScroll() {
+            if (manualScrollTarget) return;
+            let currentSection = null;
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= activeThreshold) currentSection = section;
+            }
+            if (currentSection) updateToc(currentSection.id);
+            scrollTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                requestAnimationFrame(updateTocFromScroll);
+                scrollTicking = true;
+            }
+        }, { passive: true });
+
+        // Run once on load so initial section is correct
+        updateTocFromScroll();
 
         // Add click handlers for SMOOTH GSAP navigation
         tocLinks.forEach(link => {
