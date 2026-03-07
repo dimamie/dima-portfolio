@@ -447,6 +447,12 @@ html {
     .project-sidebar .toc-nav-wrap::before {
         left: 0;
         background: linear-gradient(to right, var(--bg, #fff) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .project-sidebar .toc-nav-wrap.scrolled-left::before {
+        opacity: 1;
     }
 
     .project-sidebar .toc-nav-wrap::after {

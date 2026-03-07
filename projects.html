@@ -547,6 +547,17 @@
                 }
             });
         });
+
+        // Show left TOC fade only after user has scrolled right
+        const tocNav = document.querySelector('.toc-nav');
+        const tocWrap = document.querySelector('.toc-nav-wrap');
+        if (tocNav && tocWrap) {
+            function updateTocFade() {
+                tocWrap.classList.toggle('scrolled-left', tocNav.scrollLeft > 8);
+            }
+            tocNav.addEventListener('scroll', updateTocFade);
+            updateTocFade(); // run once for initial state
+        }
     </script>
     <script src="codepen-animation.js?v=34" defer></script>
     <script src="script.js" defer></script>
