@@ -375,7 +375,7 @@ main {
   object-fit: cover;
 }
 
-/* Tablet: same grid as mobile, larger images and headings */
+/* Tablet: Education full | AI+Calculator+Spec inline | Wordsapp+Meditation inline */
 @media (min-width: 701px) and (max-width: 1099px) {
   .projects-row {
     display: flex;
@@ -393,27 +393,27 @@ main {
   }
 
   .projects-row .project-item:nth-child(2) {
-    width: calc(50% - 12px);
+    width: calc((100% - 48px) / 3);
     order: 2;
   }
 
   .projects-row .project-item:nth-child(3) {
-    width: calc(50% - 12px);
+    width: calc((100% - 48px) / 3);
     order: 3;
   }
 
   .projects-row .project-item:nth-child(4) {
-    width: 100%;
+    width: calc((100% - 48px) / 3);
     order: 4;
   }
 
   .projects-row .project-item:nth-child(5) {
-    width: 100%;
+    width: calc((100% - 24px) / 2);
     order: 5;
   }
 
   .projects-row .project-item:nth-child(6) {
-    width: calc(50% - 12px);
+    width: calc((100% - 24px) / 2);
     order: 6;
   }
 
@@ -442,10 +442,6 @@ main {
 
   .projects-row .project-image {
     height: clamp(380px, 50vh, 620px);
-  }
-
-  .projects-row .project-item:nth-child(6) .project-image {
-    height: clamp(220px, 28vh, 340px);
   }
 
   .project-image.is-cutout .project-preview {
