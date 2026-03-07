@@ -431,17 +431,18 @@ html {
     .project-sidebar .toc-nav {
         width: 100%;
         overflow-x: auto;
-        overflow-y: hidden;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         margin: 0;
+        padding-bottom: 4px;
     }
 
     .project-sidebar .toc-list {
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 0 16px;
-        padding: 0;
+        padding: 0 8px 0 0;
         margin: 0;
         width: max-content;
         min-height: 0;
