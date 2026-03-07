@@ -483,8 +483,21 @@
         // GSAP ScrollSpy Logic
         const sections = document.querySelectorAll('.content-section');
         const tocLinks = document.querySelectorAll('.toc-link');
+        const tocNav = document.querySelector('.toc-nav');
+        const tocWrap = document.querySelector('.toc-nav-wrap');
         let currentActive = document.querySelector('.toc-link.is-active');
         let manualScrollTarget = null; // Stores target ID if manually scrolling
+
+        function scrollTocToActive(activeLink) {
+            if (!tocNav || !activeLink || tocNav.scrollWidth <= tocNav.clientWidth) return;
+            const nav = tocNav;
+            const linkLeft = activeLink.offsetLeft;
+            const linkWidth = activeLink.offsetWidth;
+            const scrollCenter = linkLeft - (nav.clientWidth / 2) + (linkWidth / 2);
+            const scrollMax = nav.scrollWidth - nav.clientWidth;
+            const scrollTo = Math.max(0, Math.min(scrollCenter, scrollMax));
+            nav.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
 
         function updateToc(targetId) {
             // Guard clause: ignore automatic updates if we are manually scrolling to a different target
@@ -501,6 +514,9 @@
             // Set next active
             nextActive.classList.add('is-active');
             currentActive = nextActive;
+
+            // Slide TOC so the active link is in view (e.g. centered)
+            scrollTocToActive(nextActive);
         }
 
         // Use ScrollTrigger for precise section detection
@@ -549,8 +565,6 @@
         });
 
         // Show left TOC fade only after user has scrolled right
-        const tocNav = document.querySelector('.toc-nav');
-        const tocWrap = document.querySelector('.toc-nav-wrap');
         if (tocNav && tocWrap) {
             function updateTocFade() {
                 tocWrap.classList.toggle('scrolled-left', tocNav.scrollLeft > 8);
