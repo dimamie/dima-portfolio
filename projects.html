@@ -519,30 +519,37 @@
             scrollTocToActive(nextActive);
         }
 
-        // Scroll spy: update TOC based on which section is in view (works reliably when scrolling)
-        const activeThreshold = 120; // px from top of viewport – section above this line is "current"
-        let scrollTicking = false;
+        // Scroll spy: which section anchor (id) is current – section whose top has passed the line
+        const activeThresholdPx = 140; // section is "current" when its top is at or above this (px from viewport top)
+
+        function getCurrentSectionId() {
+            if (manualScrollTarget) return null;
+            let current = null;
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= activeThresholdPx) current = section.getAttribute('id') || section.id;
+            }
+            if (!current && sections.length) current = sections[0].getAttribute('id') || sections[0].id;
+            return current;
+        }
 
         function updateTocFromScroll() {
-            if (manualScrollTarget) return;
-            let currentSection = null;
-            for (const section of sections) {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= activeThreshold) currentSection = section;
-            }
-            if (currentSection) updateToc(currentSection.id);
+            const id = getCurrentSectionId();
+            if (id) updateToc(id);
             scrollTicking = false;
         }
 
+        let scrollTicking = false;
         window.addEventListener('scroll', () => {
             if (!scrollTicking) {
-                requestAnimationFrame(updateTocFromScroll);
                 scrollTicking = true;
+                requestAnimationFrame(updateTocFromScroll);
             }
         }, { passive: true });
 
-        // Run once on load so initial section is correct
-        updateTocFromScroll();
+        window.addEventListener('load', updateTocFromScroll);
+        if (document.readyState === 'complete') setTimeout(updateTocFromScroll, 50);
 
         // Add click handlers for SMOOTH GSAP navigation
         tocLinks.forEach(link => {
