@@ -443,7 +443,7 @@ html {
     }
 
     .project-sidebar .toc-list li {
-        margin: 0;
+        margin: 0 !important;
         flex-shrink: 0;
     }
 
