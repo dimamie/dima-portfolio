@@ -483,10 +483,6 @@ main {
     height: clamp(300px, 40vh, 500px);
   }
 
-  .projects-row .project-item:nth-child(6) .project-image {
-    height: clamp(180px, 24vh, 280px);
-  }
-
   .project-image.is-cutout .project-preview {
     object-fit: contain;
     max-width: 85%;
