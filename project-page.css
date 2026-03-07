@@ -528,6 +528,16 @@ html {
         gap: 60px;
     }
 
+    /* On mobile, keep all project visuals on the same largest container size. */
+    .grid-item .visual-container,
+    .grid-item.is-full .visual-container,
+    .grid-item.is-half .visual-container,
+    .grid-item.is-mid .visual-container,
+    .grid-item.is-tall .visual-container {
+        aspect-ratio: 3 / 4;
+        max-height: 500px;
+    }
+
     .grid-item.is-half-width {
         width: 100%;
         margin-right: 0;
