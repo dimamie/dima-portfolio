@@ -401,11 +401,11 @@ html {
         z-index: 10;
         background: var(--bg, #fff);
         border-bottom: 1px solid var(--border);
-        padding: 10px 0 8px;
+        padding: 8px 0 8px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 6px;
+        gap: 8px;
         align-items: flex-start;
     }
 
@@ -420,7 +420,7 @@ html {
     }
 
     .project-sidebar .back-home-link .header-name {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .project-sidebar .toc-nav {
