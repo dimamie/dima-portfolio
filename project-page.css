@@ -414,7 +414,7 @@ html {
         margin: 0;
         line-height: 1;
         padding: 12px 4px;
-        min-height: 44px;
+        min-height: 40px;
         display: inline-flex;
         align-items: center;
         box-sizing: border-box;
@@ -454,7 +454,7 @@ html {
 
     .project-sidebar .toc-link {
         white-space: nowrap;
-        min-height: 44px;
+        min-height: 40px;
         padding: 12px 4px;
         line-height: 1.2;
         display: inline-flex;
