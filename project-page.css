@@ -401,11 +401,11 @@ html {
         z-index: 10;
         background: var(--bg, #fff);
         border-bottom: 1px solid var(--border);
-        padding: 12px 0 12px;
+        padding: 8px 0 8px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 12px;
+        gap: 8px;
         align-items: flex-start;
     }
 
@@ -413,6 +413,11 @@ html {
         order: -1;
         margin: 0;
         line-height: 1;
+        padding: 12px 4px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
     }
 
     .project-sidebar .back-home-link .header-profile {
@@ -449,10 +454,12 @@ html {
 
     .project-sidebar .toc-link {
         white-space: nowrap;
-        height: auto;
-        min-height: 0;
-        padding: 2px 0;
+        min-height: 44px;
+        padding: 12px 4px;
         line-height: 1.2;
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
     }
 
     .content-section {
