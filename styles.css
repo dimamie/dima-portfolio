@@ -408,12 +408,12 @@ main {
   }
 
   .projects-row .project-item:nth-child(5) {
-    width: calc((100% - 24px) / 2);
+    width: calc(100% - 24px - (100% - 48px) / 3);
     order: 5;
   }
 
   .projects-row .project-item:nth-child(6) {
-    width: calc((100% - 24px) / 2);
+    width: calc((100% - 48px) / 3);
     order: 6;
   }
 
