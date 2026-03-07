@@ -522,6 +522,7 @@
         // Simple behavior: scroll down → hide TOC bar; scroll up → show TOC bar with current section highlighted
         const sidebar = document.querySelector('.project-sidebar');
         const activeThresholdPx = 140;
+        const scrollThreshold = 12;
         let lastScrollY = window.scrollY;
         let ticking = false;
 
@@ -539,8 +540,9 @@
         function onScroll() {
             const y = window.scrollY;
             if (sidebar) {
-                if (y > lastScrollY) sidebar.classList.add('toc-bar-hidden');
-                else {
+                const delta = y - lastScrollY;
+                if (delta > scrollThreshold) sidebar.classList.add('toc-bar-hidden');
+                else if (delta < -scrollThreshold) {
                     sidebar.classList.remove('toc-bar-hidden');
                     const id = getCurrentSectionId();
                     if (id) updateToc(id);
@@ -552,8 +554,8 @@
 
         window.addEventListener('scroll', () => {
             if (!ticking) {
-                requestAnimationFrame(onScroll);
                 ticking = true;
+                requestAnimationFrame(onScroll);
             }
         }, { passive: true });
 
