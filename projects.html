@@ -543,20 +543,23 @@
         // On mobile: when a section scrolls into view, highlight its TOC item and slide TOC to that item (same as click)
         let scrollSpyTicking = false;
         function scrollSpy() {
-            if (manualScrollTarget) return;
-            if (window.innerWidth > MOBILE_MAX_WIDTH) return;
-            const id = getCurrentSectionId();
-            if (!id) { scrollSpyTicking = false; return; }
-            const nextActive = document.querySelector(`.toc-link[href="#${id}"]`);
-            if (!nextActive || nextActive === currentActive) { scrollSpyTicking = false; return; }
-            if (currentActive) currentActive.classList.remove('is-active');
-            nextActive.classList.add('is-active');
-            currentActive = nextActive;
-            // Same interaction as click: slide TOC so active item is in view (defer one frame so layout is ready)
-            requestAnimationFrame(function () {
-                scrollTocToActive(nextActive);
-            });
-            scrollSpyTicking = false;
+            try {
+                if (manualScrollTarget) return;
+                if (window.innerWidth > MOBILE_MAX_WIDTH) return;
+                const id = getCurrentSectionId();
+                if (!id) return;
+                const nextActive = document.querySelector(`.toc-link[href="#${id}"]`);
+                if (!nextActive || nextActive === currentActive) return;
+                if (currentActive) currentActive.classList.remove('is-active');
+                nextActive.classList.add('is-active');
+                currentActive = nextActive;
+                // Same interaction as click: slide TOC so active item is in view.
+                requestAnimationFrame(function () {
+                    scrollTocToActive(nextActive);
+                });
+            } finally {
+                scrollSpyTicking = false;
+            }
         }
 
         window.addEventListener('scroll', function () {
