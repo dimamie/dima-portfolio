@@ -393,11 +393,53 @@ html {
     }
 
     .project-sidebar {
-        flex: 1;
+        flex: 0 0 auto;
         width: 100%;
-        position: static;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--bg, #fff);
         border-bottom: 1px solid var(--border);
-        padding-bottom: 32px;
+        padding: 16px 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .project-sidebar .back-home-link {
+        order: -1;
+    }
+
+    .project-sidebar .toc-nav {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .project-sidebar .toc-list {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0 20px;
+        padding-bottom: 4px;
+        width: max-content;
+    }
+
+    .project-sidebar .toc-list li {
+        margin-top: 0;
+        flex-shrink: 0;
+    }
+
+    .project-sidebar .toc-link {
+        white-space: nowrap;
+        height: auto;
+        padding: 4px 0;
+    }
+
+    .content-section {
+        scroll-margin-top: 100px;
     }
 
     .project-content {
