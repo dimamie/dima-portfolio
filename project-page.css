@@ -395,20 +395,32 @@ html {
     .project-sidebar {
         flex: 0 0 auto;
         width: 100%;
+        height: auto;
         position: sticky;
         top: 0;
         z-index: 10;
         background: var(--bg, #fff);
         border-bottom: 1px solid var(--border);
-        padding: 16px 0 12px;
+        padding: 10px 0 8px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        justify-content: flex-start;
+        gap: 6px;
         align-items: flex-start;
     }
 
     .project-sidebar .back-home-link {
         order: -1;
+        margin: 0;
+        line-height: 1;
+    }
+
+    .project-sidebar .back-home-link .header-profile {
+        gap: 4px;
+    }
+
+    .project-sidebar .back-home-link .header-name {
+        font-size: 14px;
     }
 
     .project-sidebar .toc-nav {
@@ -417,29 +429,34 @@ html {
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
+        margin: 0;
     }
 
     .project-sidebar .toc-list {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 0 20px;
-        padding-bottom: 4px;
+        gap: 0 16px;
+        padding: 0;
+        margin: 0;
         width: max-content;
+        min-height: 0;
     }
 
     .project-sidebar .toc-list li {
-        margin-top: 0;
+        margin: 0;
         flex-shrink: 0;
     }
 
     .project-sidebar .toc-link {
         white-space: nowrap;
         height: auto;
-        padding: 4px 0;
+        min-height: 0;
+        padding: 2px 0;
+        line-height: 1.2;
     }
 
     .content-section {
-        scroll-margin-top: 100px;
+        scroll-margin-top: 72px;
     }
 
     .project-content {
