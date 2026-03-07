@@ -357,19 +357,6 @@ html {
 
 /* Mobile Adjustments */
 @media (max-width: 900px) {
-    html.project-page,
-    body.project-page {
-        overflow-x: visible;
-    }
-
-    .project-container {
-        overflow-x: visible;
-    }
-
-    .project-sidebar {
-        overflow-x: visible;
-    }
-
     .project-layout {
         flex-direction: column;
         gap: 40px;
@@ -448,17 +435,40 @@ html {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         margin: 0;
-        padding: 0 20px 4px 20px;
+        padding-bottom: 4px;
+        position: relative;
+    }
+
+    .project-sidebar .toc-nav::before,
+    .project-sidebar .toc-nav::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 4px;
+        width: 24px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .project-sidebar .toc-nav::before {
+        left: 0;
+        background: linear-gradient(to right, var(--bg, #fff) 0%, transparent 100%);
+    }
+
+    .project-sidebar .toc-nav::after {
+        right: 0;
+        background: linear-gradient(to left, var(--bg, #fff) 0%, transparent 100%);
     }
 
     .project-sidebar .toc-list {
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 0 16px;
-        padding: 0;
+        padding: 0 16px 0 16px;
         margin: 0;
         width: max-content;
         min-height: 0;
+        box-sizing: content-box;
     }
 
     .project-sidebar .toc-list li {
