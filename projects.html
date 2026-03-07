@@ -519,56 +519,59 @@
             scrollTocToActive(nextActive);
         }
 
-        const ACTIVE_THRESHOLD_PX = 140; // section "in view" when its top is at or above this (px from viewport top)
-        const MOBILE_MAX_WIDTH = 900;   // only run scroll spy on mobile (matches project-page.css breakpoint)
+        const ACTIVE_THRESHOLD_PX = 140; // section becomes current when its top crosses this line
+        const MOBILE_MAX_WIDTH = 900; // matches project-page.css mobile breakpoint
 
         function getCurrentSectionId() {
             let current = null;
-            for (let i = 0; i < sections.length; i++) {
-                const section = sections[i];
+            let bestTop = -Infinity;
+
+            for (const section of sections) {
                 const rect = section.getBoundingClientRect();
-                if (rect.top <= ACTIVE_THRESHOLD_PX) current = section.getAttribute('id') || section.id;
+                const sectionId = section.getAttribute('id') || section.id;
+                if (!sectionId) continue;
+
+                // Pick the section whose top is closest to the threshold from above.
+                if (rect.top <= ACTIVE_THRESHOLD_PX && rect.top > bestTop) {
+                    bestTop = rect.top;
+                    current = sectionId;
+                }
             }
-            if (!current && sections.length) current = sections[0].getAttribute('id') || sections[0].id;
+
+            if (!current && sections.length) {
+                current = sections[0].getAttribute('id') || sections[0].id;
+            }
+
             return current;
         }
 
-        function setInitialToc() {
+        function syncTocToCurrentSection() {
+            if (manualScrollTarget) return;
+            if (window.innerWidth > MOBILE_MAX_WIDTH) return;
+
             const id = getCurrentSectionId();
             if (id) updateToc(id);
         }
 
-        setInitialToc();
+        setTimeout(syncTocToCurrentSection, 0);
+        window.addEventListener('load', syncTocToCurrentSection);
+        window.addEventListener('resize', syncTocToCurrentSection);
 
-        // On mobile: when a section scrolls into view, highlight its TOC item and slide TOC to that item (same as click)
-        let scrollSpyTicking = false;
-        function scrollSpy() {
-            try {
-                if (manualScrollTarget) return;
-                if (window.innerWidth > MOBILE_MAX_WIDTH) return;
-                const id = getCurrentSectionId();
-                if (!id) return;
-                const nextActive = document.querySelector(`.toc-link[href="#${id}"]`);
-                if (!nextActive || nextActive === currentActive) return;
-                if (currentActive) currentActive.classList.remove('is-active');
-                nextActive.classList.add('is-active');
-                currentActive = nextActive;
-                // Same interaction as click: slide TOC so active item is in view.
-                requestAnimationFrame(function () {
-                    scrollTocToActive(nextActive);
-                });
-            } finally {
-                scrollSpyTicking = false;
+        // On mobile: when sections move through the viewport, keep the TOC highlight in sync.
+        const mobileSectionObserver = new IntersectionObserver(
+            () => {
+                requestAnimationFrame(syncTocToCurrentSection);
+            },
+            {
+                root: null,
+                rootMargin: `-${ACTIVE_THRESHOLD_PX}px 0px -55% 0px`,
+                threshold: [0, 0.01, 0.25, 0.5, 0.75, 1]
             }
-        }
+        );
 
-        window.addEventListener('scroll', function () {
-            if (scrollSpyTicking) return;
-            scrollSpyTicking = true;
-            requestAnimationFrame(scrollSpy);
-        }, { passive: true });
-
-        window.addEventListener('load', setInitialToc);
+        sections.forEach((section) => {
+            mobileSectionObserver.observe(section);
+        });
 
         // Add click handlers for SMOOTH GSAP navigation
         tocLinks.forEach(link => {
