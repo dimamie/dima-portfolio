@@ -413,18 +413,47 @@ main {
 
   .projects-row {
     display: flex;
-    flex-direction: column;
-    gap: 48px;
-    /* Increased gap between projects */
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 24px 16px;
     padding-inline: 32px !important;
-    /* Consistent padding */
     width: 100%;
     margin-bottom: 2rem;
   }
 
+  /* Mobile grid: Education full | AI+Calculator | Spec+Meditation | Wordsapp full */
+  .projects-row .project-item:nth-child(1) {
+    width: 100%;
+    order: 1;
+  }
+
+  .projects-row .project-item:nth-child(2) {
+    width: calc(50% - 8px);
+    order: 2;
+  }
+
+  .projects-row .project-item:nth-child(3) {
+    width: calc(50% - 8px);
+    order: 3;
+  }
+
+  .projects-row .project-item:nth-child(4) {
+    width: calc(50% - 8px);
+    order: 4;
+  }
+
+  .projects-row .project-item:nth-child(5) {
+    width: 100%;
+    order: 6;
+  }
+
+  .projects-row .project-item:nth-child(6) {
+    width: calc(50% - 8px);
+    order: 5;
+  }
+
   .projects-row .project-item {
     gap: 12px;
-    /* Slightly increased gap between image and text */
   }
 
   .projects-row .project-text {
