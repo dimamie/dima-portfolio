@@ -519,18 +519,44 @@
             scrollTocToActive(nextActive);
         }
 
-        // Set initial active section on load
-        (function setInitialToc() {
-            const activeThresholdPx = 140;
+        const ACTIVE_THRESHOLD_PX = 140; // section "in view" when its top is at or above this (px from viewport top)
+        const MOBILE_MAX_WIDTH = 900;   // only run scroll spy on mobile (matches project-page.css breakpoint)
+
+        function getCurrentSectionId() {
             let current = null;
             for (let i = 0; i < sections.length; i++) {
                 const section = sections[i];
                 const rect = section.getBoundingClientRect();
-                if (rect.top <= activeThresholdPx) current = section.getAttribute('id') || section.id;
+                if (rect.top <= ACTIVE_THRESHOLD_PX) current = section.getAttribute('id') || section.id;
             }
             if (!current && sections.length) current = sections[0].getAttribute('id') || sections[0].id;
-            if (current) updateToc(current);
-        })();
+            return current;
+        }
+
+        function setInitialToc() {
+            const id = getCurrentSectionId();
+            if (id) updateToc(id);
+        }
+
+        setInitialToc();
+
+        // On mobile: when user scrolls, highlight the TOC item for the section currently in view (like desktop)
+        let scrollSpyTicking = false;
+        function scrollSpy() {
+            if (manualScrollTarget) return;
+            if (window.innerWidth > MOBILE_MAX_WIDTH) return;
+            const id = getCurrentSectionId();
+            if (id) updateToc(id);
+            scrollSpyTicking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (scrollSpyTicking) return;
+            scrollSpyTicking = true;
+            requestAnimationFrame(scrollSpy);
+        }, { passive: true });
+
+        window.addEventListener('load', setInitialToc);
 
         // Add click handlers for SMOOTH GSAP navigation
         tocLinks.forEach(link => {
