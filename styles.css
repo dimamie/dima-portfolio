@@ -563,7 +563,7 @@ main {
   .projects-row .project-item:nth-child(6) .project-image {
     height: clamp(180px, 24vh, 280px);
     max-width: 70%;
-    margin-inline: auto;
+    margin-inline: 0 auto;
   }
 
   .project-image.is-cutout .project-preview {
