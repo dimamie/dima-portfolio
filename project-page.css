@@ -407,6 +407,11 @@ html {
         justify-content: flex-start;
         gap: 0;
         align-items: flex-start;
+        transition: transform 0.25s ease;
+    }
+
+    .project-sidebar.toc-bar-hidden {
+        transform: translateY(-100%);
     }
 
     .project-sidebar .back-home-link {

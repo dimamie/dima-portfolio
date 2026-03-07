@@ -519,11 +519,13 @@
             scrollTocToActive(nextActive);
         }
 
-        // Scroll spy: which section anchor (id) is current – section whose top has passed the line
-        const activeThresholdPx = 140; // section is "current" when its top is at or above this (px from viewport top)
+        // Simple behavior: scroll down → hide TOC bar; scroll up → show TOC bar with current section highlighted
+        const sidebar = document.querySelector('.project-sidebar');
+        const activeThresholdPx = 140;
+        let lastScrollY = window.scrollY;
+        let ticking = false;
 
         function getCurrentSectionId() {
-            if (manualScrollTarget) return null;
             let current = null;
             for (let i = 0; i < sections.length; i++) {
                 const section = sections[i];
@@ -534,22 +536,31 @@
             return current;
         }
 
-        function updateTocFromScroll() {
-            const id = getCurrentSectionId();
-            if (id) updateToc(id);
-            scrollTicking = false;
+        function onScroll() {
+            const y = window.scrollY;
+            if (sidebar) {
+                if (y > lastScrollY) sidebar.classList.add('toc-bar-hidden');
+                else {
+                    sidebar.classList.remove('toc-bar-hidden');
+                    const id = getCurrentSectionId();
+                    if (id) updateToc(id);
+                }
+            }
+            lastScrollY = y;
+            ticking = false;
         }
 
-        let scrollTicking = false;
         window.addEventListener('scroll', () => {
-            if (!scrollTicking) {
-                scrollTicking = true;
-                requestAnimationFrame(updateTocFromScroll);
+            if (!ticking) {
+                requestAnimationFrame(onScroll);
+                ticking = true;
             }
         }, { passive: true });
 
-        window.addEventListener('load', updateTocFromScroll);
-        if (document.readyState === 'complete') setTimeout(updateTocFromScroll, 50);
+        window.addEventListener('load', () => {
+            const id = getCurrentSectionId();
+            if (id) updateToc(id);
+        });
 
         // Add click handlers for SMOOTH GSAP navigation
         tocLinks.forEach(link => {
