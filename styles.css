@@ -415,7 +415,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 24px 16px;
+    gap: 48px 16px;
     padding-inline: 32px !important;
     width: 100%;
     margin-bottom: 2rem;
