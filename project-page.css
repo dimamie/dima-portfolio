@@ -405,7 +405,7 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 8px;
+        gap: 4px;
         align-items: flex-start;
     }
 
