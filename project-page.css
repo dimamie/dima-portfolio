@@ -510,7 +510,7 @@ html {
 
     .grid-item.is-full .grid-text {
         flex-direction: column;
-        gap: 24px;
+        gap: 12px;
     }
 
     .grid-text p.is-heading {
