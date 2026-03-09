@@ -478,7 +478,7 @@ html {
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 0 16px;
-        padding: 0 16px 0 16px;
+        padding: 0 16px 0 clamp(2rem, 5vw, 3rem);
         margin: 0;
         width: max-content;
         min-height: 0;
