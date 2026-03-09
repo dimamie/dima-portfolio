@@ -607,7 +607,6 @@
 
         function syncTocToCurrentSection() {
             if (manualScrollTarget) return;
-            if (window.innerWidth > MOBILE_MAX_WIDTH) return;
 
             const id = getCurrentSectionId();
             if (id) updateToc(id);
