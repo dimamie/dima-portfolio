@@ -538,6 +538,10 @@ html {
         gap: 60px;
     }
 
+    .visual-container:has(.img-sidebutton) {
+        align-items: center;
+    }
+
     /* On mobile, keep all project visuals square: height equals width. */
     .grid-item .visual-container,
     .grid-item.is-full .visual-container,
