@@ -237,6 +237,10 @@ html {
     max-height: 500px;
 }
 
+.visual-container:has(.img-sidebutton) {
+    align-items: center;
+}
+
 .visual-container picture {
     display: block;
     width: 100%;
@@ -536,10 +540,6 @@ html {
     .column-left,
     .column-right {
         gap: 60px;
-    }
-
-    .visual-container:has(.img-sidebutton) {
-        align-items: center;
     }
 
     /* On mobile, keep all project visuals square: height equals width. */
