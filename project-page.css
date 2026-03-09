@@ -394,14 +394,16 @@ html {
 
     .project-sidebar {
         flex: 0 0 auto;
-        width: 100%;
+        width: calc(100% + clamp(2rem, 5vw, 3rem) + clamp(2rem, 6vw, 6rem));
+        margin-left: calc(-1 * clamp(2rem, 5vw, 3rem));
+        margin-right: calc(-1 * clamp(2rem, 6vw, 6rem));
         height: auto;
         position: sticky;
         top: 0;
         z-index: 10;
         background: var(--bg, #fff);
         border-bottom: 1px solid var(--border);
-        padding: 8px 0 8px;
+        padding: 8px clamp(2rem, 5vw, 3rem) 8px clamp(2rem, 6vw, 6rem);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -430,7 +432,9 @@ html {
 
     .project-sidebar .toc-nav-wrap {
         position: relative;
-        width: 100%;
+        width: calc(100% + clamp(2rem, 5vw, 3rem) + clamp(2rem, 6vw, 6rem));
+        margin-left: calc(-1 * clamp(2rem, 5vw, 3rem));
+        margin-right: calc(-1 * clamp(2rem, 6vw, 6rem));
     }
 
     .project-sidebar .toc-nav-wrap::before,
@@ -474,7 +478,7 @@ html {
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 0 16px;
-        padding: 0 16px 0 0;
+        padding: 0 16px 0 16px;
         margin: 0;
         width: max-content;
         min-height: 0;
