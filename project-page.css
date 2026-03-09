@@ -360,7 +360,7 @@ html {
     .project-layout {
         flex-direction: column;
         gap: 40px;
-        padding-top: 80px;
+        padding-top: 24px;
         padding-bottom: 60px;
     }
 
