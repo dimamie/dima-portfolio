@@ -527,12 +527,12 @@ html {
         gap: 12px;
     }
 
-    /* Mobile hero visuals: mirror the main page image behavior. */
-    .grid-item.is-full {
+    /* On mobile, make all project visuals follow the first image treatment. */
+    .grid-item {
         overflow: visible;
     }
 
-    .grid-item.is-full .visual-container {
+    .grid-item .visual-container {
         display: block;
         width: 100vw;
         margin-left: calc(50% - 50vw);
@@ -546,7 +546,7 @@ html {
         line-height: 0;
     }
 
-    .grid-item.is-full .visual-container picture {
+    .grid-item .visual-container picture {
         display: block;
         width: 100%;
         height: auto;
@@ -554,7 +554,7 @@ html {
         line-height: 0;
     }
 
-    .grid-item.is-full .visual-image {
+    .grid-item .visual-image {
         width: 100%;
         height: auto;
         max-width: 100%;
@@ -577,14 +577,6 @@ html {
     .column-left,
     .column-right {
         gap: 60px;
-    }
-
-    /* On mobile, keep non-hero project visuals square: height equals width. */
-    .grid-item.is-half .visual-container,
-    .grid-item.is-mid .visual-container,
-    .grid-item.is-tall .visual-container {
-        aspect-ratio: 1 / 1;
-        max-height: none;
     }
 
     .grid-item.is-half-width {
