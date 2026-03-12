@@ -527,6 +527,21 @@ html {
         gap: 12px;
     }
 
+    /* Mobile hero visuals: edge-to-edge with no card background. */
+    .grid-item.is-full .visual-container {
+        width: calc(100% + clamp(2rem, 5vw, 3rem) + clamp(2rem, 6vw, 6rem));
+        margin-left: calc(-1 * clamp(2rem, 5vw, 3rem));
+        margin-right: calc(-1 * clamp(2rem, 6vw, 6rem));
+        background: transparent;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .grid-item.is-full .visual-image {
+        object-fit: cover;
+        object-position: center;
+    }
+
     .grid-text p.is-heading {
         font-size: 24px;
         line-height: 30px;
