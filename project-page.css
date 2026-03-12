@@ -528,7 +528,12 @@ html {
     }
 
     /* Mobile hero visuals: mirror the main page image behavior. */
+    .grid-item.is-full {
+        overflow: visible;
+    }
+
     .grid-item.is-full .visual-container {
+        display: block;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
@@ -537,7 +542,8 @@ html {
         background: transparent !important;
         border-radius: 0;
         overflow: visible;
-        align-items: stretch;
+        padding: 0;
+        line-height: 0;
     }
 
     .grid-item.is-full .visual-container picture {
@@ -545,6 +551,7 @@ html {
         width: 100%;
         height: auto;
         background: transparent;
+        line-height: 0;
     }
 
     .grid-item.is-full .visual-image {
