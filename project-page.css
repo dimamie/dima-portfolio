@@ -529,12 +529,17 @@ html {
 
     /* Mobile hero visuals: edge-to-edge with no card background. */
     .grid-item.is-full .visual-container {
-        width: calc(100% + clamp(2rem, 5vw, 3rem) + clamp(2rem, 6vw, 6rem));
-        margin-left: calc(-1 * clamp(2rem, 5vw, 3rem));
-        margin-right: calc(-1 * clamp(2rem, 6vw, 6rem));
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
         background: transparent;
         border-radius: 0;
-        overflow: visible;
+        overflow: hidden;
+    }
+
+    .grid-item.is-full .visual-container picture,
+    .grid-item.is-full .visual-image {
+        background: transparent;
     }
 
     .grid-item.is-full .visual-image {
