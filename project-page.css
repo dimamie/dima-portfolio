@@ -527,23 +527,33 @@ html {
         gap: 12px;
     }
 
-    /* Mobile hero visuals: edge-to-edge with no card background. */
+    /* Mobile hero visuals: mirror the main page image behavior. */
     .grid-item.is-full .visual-container {
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
-        background: transparent;
+        aspect-ratio: auto;
+        max-height: none;
+        background: transparent !important;
         border-radius: 0;
-        overflow: hidden;
+        overflow: visible;
+        align-items: stretch;
     }
 
-    .grid-item.is-full .visual-container picture,
-    .grid-item.is-full .visual-image {
+    .grid-item.is-full .visual-container picture {
+        display: block;
+        width: 100%;
+        height: auto;
         background: transparent;
     }
 
     .grid-item.is-full .visual-image {
-        object-fit: cover;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        background: transparent;
+        object-fit: contain;
         object-position: center;
     }
 
@@ -562,9 +572,7 @@ html {
         gap: 60px;
     }
 
-    /* On mobile, keep all project visuals square: height equals width. */
-    .grid-item .visual-container,
-    .grid-item.is-full .visual-container,
+    /* On mobile, keep non-hero project visuals square: height equals width. */
     .grid-item.is-half .visual-container,
     .grid-item.is-mid .visual-container,
     .grid-item.is-tall .visual-container {
