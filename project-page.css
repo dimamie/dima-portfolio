@@ -369,7 +369,7 @@ html {
 @media (max-width: 900px) {
     .project-layout {
         flex-direction: column;
-        gap: 40px;
+        gap: 24px;
         padding-top: 24px;
         padding-bottom: 60px;
     }
