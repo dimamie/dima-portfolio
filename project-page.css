@@ -575,12 +575,12 @@ html {
 
     .grid-columns-wrapper {
         flex-direction: column;
-        gap: 60px;
+        gap: 24px;
     }
 
     .column-left,
     .column-right {
-        gap: 60px;
+        gap: 24px;
     }
 
     .grid-item.is-half-width {
