@@ -370,7 +370,7 @@ html {
     .project-layout {
         flex-direction: column;
         gap: 24px;
-        padding-top: 24px;
+        padding-top: 0;
         padding-bottom: 60px;
     }
 
