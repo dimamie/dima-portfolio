@@ -527,41 +527,45 @@ html {
         gap: 12px;
     }
 
-    /* On mobile, make all project visuals follow the first image treatment. */
+    /* On mobile, force every project visual to use the same first-image treatment. */
     .grid-item {
         overflow: visible;
     }
 
-    .grid-item .visual-container {
+    .grid-item .visual-container,
+    #retirement .visual-container,
+    .visual-container:has(.img-sidebutton) {
         display: block;
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
-        aspect-ratio: auto;
-        max-height: none;
+        width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        aspect-ratio: auto !important;
+        max-height: none !important;
         background: transparent !important;
-        border-radius: 0;
-        overflow: visible;
-        padding: 0;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        padding: 0 !important;
         line-height: 0;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
     }
 
     .grid-item .visual-container picture {
         display: block;
-        width: 100%;
-        height: auto;
-        background: transparent;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
         line-height: 0;
     }
 
     .grid-item .visual-image {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        max-height: none;
-        background: transparent;
-        object-fit: contain;
-        object-position: center;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        background: transparent !important;
+        object-fit: contain !important;
+        object-position: center !important;
     }
 
     .grid-text p.is-heading {
