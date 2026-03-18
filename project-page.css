@@ -11,7 +11,7 @@ html {
 
 @media (min-width: 1440px) {
     .project-container {
-        padding-right: clamp(6rem, 10vw, 10rem);
+        padding-right: clamp(8rem, 14vw, 14rem);
     }
 }
 
