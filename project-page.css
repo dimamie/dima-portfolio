@@ -9,7 +9,7 @@ html {
     padding-right: clamp(2rem, 6vw, 6rem);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 901px) {
     .project-container {
         padding-right: 400px;
     }
