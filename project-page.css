@@ -383,7 +383,7 @@ html {
 
 .img-ibooks {
     object-fit: cover;
-    object-position: left center;
+    object-position: center;
 }
 
 .img-dictionary {
