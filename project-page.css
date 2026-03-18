@@ -375,6 +375,14 @@ html {
     object-position: bottom center;
 }
 
+.img-wordsmain,
+.img-ibooks,
+.img-dictionary,
+.img-liveactivity {
+    object-fit: contain;
+    object-position: center;
+}
+
 .grid-text {
     font-size: 16px;
     color: var(--muted-weak);
