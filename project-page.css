@@ -376,11 +376,23 @@ html {
 }
 
 .img-wordsmain,
-.img-ibooks,
-.img-dictionary,
 .img-liveactivity {
     object-fit: contain;
     object-position: center;
+}
+
+.img-ibooks {
+    object-fit: cover;
+    object-position: left center;
+}
+
+.img-dictionary {
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+.words-liveactivity-note {
+    align-self: flex-start;
 }
 
 .grid-text {
