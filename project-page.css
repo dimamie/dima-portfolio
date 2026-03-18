@@ -77,7 +77,7 @@ html {
 
 .toc-group {
     display: grid;
-    grid-template-columns: 182px auto;
+    grid-template-columns: 171px auto;
     column-gap: 12px;
     align-items: stretch;
 }
@@ -141,9 +141,9 @@ html {
     letter-spacing: -0.03em;
     /* -3% as requested */
     display: flex;
-    align-items: center;
-    height: 32px;
-    /* 32px hitbox */
+    align-items: flex-start;
+    min-height: 24px;
+    line-height: 24px;
     position: relative;
     padding-left: 0;
     transition: opacity 0.3s ease, color 0.3s ease;
