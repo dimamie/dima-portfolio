@@ -69,6 +69,19 @@ html {
     align-self: flex-start;
 }
 
+.toc-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.toc-group {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    align-items: stretch;
+}
+
 .toc-list {
     list-style: none;
     padding: 0;
@@ -77,6 +90,41 @@ html {
     flex-direction: column;
     gap: 0;
     /* No gap between items as requested */
+}
+
+.toc-group-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+}
+
+.toc-group-bracket {
+    position: relative;
+    width: 14px;
+    align-self: stretch;
+    border-right: 1px solid var(--border);
+}
+
+.toc-group-bracket::before,
+.toc-group-bracket::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 1px;
+    background: var(--border);
+}
+
+.toc-group-bracket::before {
+    top: 0;
+}
+
+.toc-group-bracket::after {
+    bottom: 0;
 }
 
 .toc-link {
@@ -482,6 +530,21 @@ html {
         scrollbar-width: thin;
         margin: 0;
         padding-bottom: 4px;
+    }
+
+    .project-sidebar .toc-groups {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        width: max-content;
+    }
+
+    .project-sidebar .toc-group {
+        display: contents;
+    }
+
+    .project-sidebar .toc-group-meta {
+        display: none;
     }
 
     .project-sidebar .toc-list {
