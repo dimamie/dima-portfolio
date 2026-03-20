@@ -72,8 +72,18 @@ html {
     /* Viewport minus 60px top padding and 24px bottom gap */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 32px;
     align-self: flex-start;
+}
+
+/* TOC fills space below back link; scroll if list is taller than viewport */
+@media (min-width: 901px) {
+    .project-sidebar .toc-nav-wrap {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
 }
 
 .toc-groups {
@@ -500,12 +510,11 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 0;
+        gap: 32px;
         align-items: flex-start;
     }
 
     .project-sidebar .back-home-link {
-        order: -1;
         margin: 0;
         line-height: 1;
         padding: 12px 4px;
