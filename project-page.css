@@ -9,10 +9,10 @@ html {
     padding-right: clamp(2rem, 6vw, 6rem);
 }
 
-/* Laptops / MacBook: more air on the right (between base mobile/tablet and ultra-wide rule below) */
+/* Laptops / MacBook: fixed right padding (between base mobile/tablet and ultra-wide rule below) */
 @media (min-width: 901px) and (max-width: 1919px) {
     .project-container {
-        padding-right: clamp(3rem, 9vw, 9rem);
+        padding-right: 48px;
     }
 }
 
