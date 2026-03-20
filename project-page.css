@@ -9,8 +9,8 @@ html {
     padding-right: clamp(2rem, 6vw, 6rem);
 }
 
-/* TOC-width matching padding: only on wide screens; laptops keep symmetric clamp padding */
-@media (min-width: 1440px) {
+/* TOC-width matching padding: only very wide viewports (14–16" laptops are often 1512–1728px, so 1440px was too low) */
+@media (min-width: 1920px) {
     .project-container {
         padding-right: 400px;
     }
