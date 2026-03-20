@@ -9,6 +9,13 @@ html {
     padding-right: clamp(2rem, 6vw, 6rem);
 }
 
+/* Laptops / MacBook: more air on the right (between base mobile/tablet and ultra-wide rule below) */
+@media (min-width: 901px) and (max-width: 1919px) {
+    .project-container {
+        padding-right: clamp(3rem, 9vw, 9rem);
+    }
+}
+
 /* TOC-width matching padding: only very wide viewports (14–16" laptops are often 1512–1728px, so 1440px was too low) */
 @media (min-width: 1920px) {
     .project-container {
