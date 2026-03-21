@@ -12,14 +12,14 @@ html {
 /* Laptops / MacBook: fixed right padding (between base mobile/tablet and ultra-wide rule below) */
 @media (min-width: 901px) and (max-width: 1919px) {
     .project-container {
-        padding-right: 72px;
+        padding-right: 112px;
     }
 }
 
-/* TOC-width matching padding: sidebar width + layout gap (see desktop .project-sidebar flex basis) */
+/* TOC-width matching padding: sidebar width (240px) + gap to content (see .project-layout gap on desktop) */
 @media (min-width: 1920px) {
     .project-container {
-        padding-right: 360px;
+        padding-right: 312px;
     }
 }
 
@@ -61,8 +61,8 @@ html {
 .project-layout {
     display: flex;
     justify-content: space-between;
-    gap: 120px;
-    /* Enforce a strict minimum distance between left and right column */
+    gap: 72px;
+    /* Space between TOC sidebar and project content (mobile overrides below) */
     padding-top: 60px;
     padding-bottom: 80px;
     align-items: flex-start;
