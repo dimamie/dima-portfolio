@@ -349,16 +349,6 @@ html {
     aspect-ratio: 16 / 9;
 }
 
-/* Mid Width (1 column) — slightly taller than half, still rectangular */
-.grid-item.is-mid .visual-container {
-    aspect-ratio: 4 / 3;
-}
-
-/* Tall Half Width (1 column) — portrait, a bit less height than 3/4 */
-.grid-item.is-tall .visual-container {
-    aspect-ratio: 4 / 5;
-}
-
 .visual-container:has(.img-sidebutton) {
     align-items: center;
 }
@@ -719,14 +709,6 @@ html {
 
     .grid-item.is-half.is-half-landscape .visual-container {
         aspect-ratio: 16 / 9 !important;
-    }
-
-    .grid-item.is-mid .visual-container {
-        aspect-ratio: 4 / 3 !important;
-    }
-
-    .grid-item.is-tall .visual-container {
-        aspect-ratio: 4 / 5 !important;
     }
 
     .grid-item .visual-container picture {
