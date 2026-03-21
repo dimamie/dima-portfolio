@@ -436,7 +436,10 @@ html {
 }
 
 .img-wordsmain,
-.img-liveactivity {
+.img-liveactivity,
+.img-wordstart,
+.img-newlist,
+.img-batchadd {
     object-fit: contain;
     object-position: center;
 }
