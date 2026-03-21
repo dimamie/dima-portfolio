@@ -209,8 +209,13 @@ html {
     }
 
     .toc-group {
-        grid-template-columns: 152px auto;
+        grid-template-columns: 104px auto;
         column-gap: 10px;
+    }
+
+    /* Let the link column shrink so long labels wrap to two lines */
+    .toc-group .toc-list {
+        min-width: 0;
     }
 
     .toc-link {
@@ -218,6 +223,10 @@ html {
         line-height: 18px;
         min-height: 28px;
         padding: 5px 0;
+    }
+
+    .toc-link span {
+        overflow-wrap: break-word;
     }
 
     .toc-group-label {
