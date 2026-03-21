@@ -209,7 +209,7 @@ html {
     }
 
     .toc-group {
-        grid-template-columns: 104px auto;
+        grid-template-columns: 128px auto;
         column-gap: 10px;
     }
 
