@@ -56,7 +56,10 @@ html {
     transition: opacity 0.3s ease;
 }
 
-
+.back-home-link .header-avatar {
+    width: clamp(1rem, 2vw, 1.5rem);
+    height: clamp(1rem, 2vw, 1.5rem);
+}
 
 .project-layout {
     display: flex;
