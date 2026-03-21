@@ -339,8 +339,13 @@ html {
     aspect-ratio: 16 / 9;
 }
 
-/* Half Width (1 column) — wider, shorter frame */
+/* Half Width (1 column) — default square frame */
 .grid-item.is-half .visual-container {
+    aspect-ratio: 1 / 1;
+}
+
+/* Optional modifier: same half column layout, 16:9 frame (use with class is-half-landscape on .grid-item) */
+.grid-item.is-half.is-half-landscape .visual-container {
     aspect-ratio: 16 / 9;
 }
 
@@ -709,6 +714,10 @@ html {
     }
 
     .grid-item.is-half .visual-container {
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .grid-item.is-half.is-half-landscape .visual-container {
         aspect-ratio: 16 / 9 !important;
     }
 
