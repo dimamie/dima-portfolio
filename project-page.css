@@ -16,10 +16,10 @@ html {
     }
 }
 
-/* TOC-width matching padding: only very wide viewports (14–16" laptops are often 1512–1728px, so 1440px was too low) */
+/* TOC-width matching padding: sidebar width + layout gap (see desktop .project-sidebar flex basis) */
 @media (min-width: 1920px) {
     .project-container {
-        padding-right: 400px;
+        padding-right: 360px;
     }
 }
 
@@ -192,6 +192,39 @@ html {
 .header-sidebar-area {
     flex: 0 0 280px;
     /* Matching .project-sidebar */
+}
+
+/* Desktop: narrower TOC column + slightly smaller link text (must follow base sidebar widths above) */
+@media (min-width: 901px) {
+    .project-sidebar {
+        flex: 0 0 240px;
+    }
+
+    .header-sidebar-area {
+        flex: 0 0 240px;
+    }
+
+    .toc-groups {
+        gap: 32px;
+    }
+
+    .toc-group {
+        grid-template-columns: 152px auto;
+        column-gap: 10px;
+    }
+
+    .toc-link {
+        font-size: 14px;
+        line-height: 18px;
+        min-height: 28px;
+        padding: 5px 0;
+    }
+
+    .toc-group-label {
+        font-size: 12px;
+        line-height: 13px;
+        width: 42px;
+    }
 }
 
 .header-content-area {
