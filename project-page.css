@@ -54,6 +54,9 @@ html {
 .back-home-link .back-arrow {
     opacity: 0.4;
     transition: opacity 0.3s ease;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 .back-home-link .header-avatar {
