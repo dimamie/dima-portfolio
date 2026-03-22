@@ -439,7 +439,8 @@ html {
 .img-liveactivity,
 .img-wordstart,
 .img-newlist,
-.img-batchadd {
+.img-batchadd,
+.img-learnwords {
     object-fit: contain;
     object-position: center;
 }
