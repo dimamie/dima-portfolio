@@ -180,6 +180,26 @@ html {
     opacity: 1;
 }
 
+/* Desktop TOC: upcoming app (lighter than inactive links @ 0.4) */
+.toc-soon-line {
+    display: block;
+    min-height: 32px;
+    line-height: 20px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .toc-item--meditation-soon {
+        display: none;
+    }
+}
+
 /* Content Area */
 .project-content {
     flex: 0 1 1200px;
@@ -239,6 +259,13 @@ html {
         font-size: 12px;
         line-height: 13px;
         width: 42px;
+    }
+
+    .toc-soon-line {
+        font-size: 14px;
+        line-height: 18px;
+        min-height: 28px;
+        padding: 5px 0;
     }
 }
 

@@ -43,6 +43,9 @@
                                 <div class="toc-group">
                                     <ul class="toc-list">
                                         <li><a href="#words-app" class="toc-link"><span>Words App</span></a></li>
+                                        <li class="toc-item--meditation-soon" aria-label="Simple Meditation app — coming soon">
+                                            <span class="toc-soon-line">Simple Meditation app • Coming soon</span>
+                                        </li>
                                     </ul>
                                     <div class="toc-group-meta" aria-hidden="true">
                                         <span class="toc-group-bracket"></span>
@@ -715,10 +718,10 @@
 
         // GSAP ScrollSpy Logic
         const sections = document.querySelectorAll('.content-section');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        const tocLinks = document.querySelectorAll('a.toc-link');
         const tocNav = document.querySelector('.toc-nav');
         const tocWrap = document.querySelector('.toc-nav-wrap');
-        let currentActive = document.querySelector('.toc-link.is-active');
+        let currentActive = document.querySelector('a.toc-link.is-active');
         let manualScrollTarget = null; // Stores target ID if manually scrolling
 
         function scrollTocToActive(activeLink) {
