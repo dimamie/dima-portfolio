@@ -283,7 +283,7 @@ main {
   gap: 0.25rem;
   align-items: flex-start;
   text-align: left;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 .projects-row .project-badge {
