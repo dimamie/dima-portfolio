@@ -507,38 +507,6 @@ html {
     gap: 8px;
 }
 
-/* Meditation app — coming soon row */
-.meditation-soon-layout {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 16px 24px;
-    width: 100%;
-}
-
-p.meditation-soon-title.is-heading {
-    color: var(--text);
-    font-size: 26px;
-    line-height: 34px;
-    letter-spacing: -0.03em;
-    margin: 0;
-}
-
-.meditation-soon-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    background: #f0f0f2;
-    border-radius: 1000px;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--muted-weak, rgba(0, 0, 0, 0.55));
-    white-space: nowrap;
-}
-
 /* Mobile Adjustments */
 @media (max-width: 900px) {
     .project-layout {
@@ -797,18 +765,4 @@ p.meditation-soon-title.is-heading {
         margin-right: 0;
     }
 
-    p.meditation-soon-title.is-heading {
-        font-size: 24px;
-        line-height: 30px;
-    }
-
-    .meditation-soon-layout {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .meditation-soon-badge {
-        white-space: normal;
-        text-align: center;
-    }
 }
