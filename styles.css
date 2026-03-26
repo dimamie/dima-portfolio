@@ -314,26 +314,21 @@ main {
 }
 
 .projects-row .project-item--meditation .project-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
   text-decoration: none;
   cursor: default;
   flex: 0 1 auto;
 }
 
-.projects-row .project-coming-soon {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  line-height: 1.2;
-  margin: 0;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  opacity: 0.4;
+.projects-row .project-item--meditation .project-name > span {
+  display: block;
 }
 
-.projects-row .project-item--meditation .project-text {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.25rem;
+.projects-row .project-item--meditation .project-name-soon {
+  opacity: 0.4;
 }
 
 .projects-row .project-category {
@@ -458,10 +453,6 @@ main {
     flex: 1;
   }
 
-  .projects-row .project-coming-soon {
-    font-size: 22px;
-  }
-
   .projects-row .project-category {
     flex: 0 0 auto;
     text-align: right;
@@ -575,10 +566,6 @@ main {
     font-size: 16px;
     flex: 1;
     /* Fill property */
-  }
-
-  .projects-row .project-coming-soon {
-    font-size: 16px;
   }
 
   .projects-row .project-category {
