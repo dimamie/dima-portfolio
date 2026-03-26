@@ -318,6 +318,17 @@ main {
   pointer-events: none;
 }
 
+.projects-row .project-item--soon .project-item-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.projects-row .project-item--soon .meditation-soon-badge {
+  align-self: center;
+}
+
 .projects-row .project-item--soon .project-image,
 .projects-row .project-item--soon .project-name--soon {
   opacity: 0.5;
@@ -339,13 +350,6 @@ main {
   letter-spacing: -0.02em;
   color: var(--muted-weak, rgba(0, 0, 0, 0.55));
   white-space: nowrap;
-}
-
-.projects-row .project-item--soon .project-text {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.25rem;
 }
 
 .projects-row .project-item--soon .project-name {
