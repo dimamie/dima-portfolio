@@ -685,6 +685,10 @@ p.meditation-soon-title.is-heading {
         box-sizing: content-box;
     }
 
+    .project-sidebar .toc-group + .toc-group .toc-list {
+        padding-left: 0;
+    }
+
     .project-sidebar .toc-list li {
         margin: 0 !important;
         flex-shrink: 0;
