@@ -440,7 +440,9 @@ html {
 .img-wordstart,
 .img-newlist,
 .img-batchadd,
-.img-learnwords {
+.img-learnwords,
+.img-worddefinitions,
+.img-swipewords {
     object-fit: contain;
     object-position: center;
 }
