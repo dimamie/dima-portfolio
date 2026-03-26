@@ -313,54 +313,6 @@ main {
   opacity: 0.7;
 }
 
-/* Meditation tile — not a case study yet (matches projects page pill) */
-.projects-row .project-item--soon {
-  pointer-events: none;
-}
-
-.projects-row .project-item--soon .project-item-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.5rem;
-}
-
-.projects-row .project-item--soon .project-item-soon-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: flex-start;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.projects-row .project-item--soon .project-image,
-.projects-row .project-item--soon .project-name--soon {
-  opacity: 0.5;
-}
-
-.projects-row .project-name--soon {
-  text-decoration: none;
-  cursor: default;
-}
-
-.projects-row .meditation-soon-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  background: #f0f0f2;
-  border-radius: 1000px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--muted-weak, rgba(0, 0, 0, 0.55));
-  white-space: nowrap;
-}
-
-.projects-row .project-item--soon .project-name {
-  flex: 0 1 auto;
-}
-
 .projects-row .project-category {
   font-size: 12px;
   color: var(--muted);
@@ -608,15 +560,10 @@ main {
     height: clamp(300px, 40vh, 500px);
   }
 
-  .projects-row .project-item--soon .project-item-soon-visual {
-    max-width: 70%;
-  }
-
-  .projects-row .project-item--soon .project-image {
+  .projects-row .project-item:nth-child(6) .project-image {
     height: clamp(180px, 24vh, 280px);
-    max-width: 100%;
-    width: 100%;
-    margin-inline: 0;
+    max-width: 70%;
+    margin-inline: 0 auto;
   }
 
   .project-image.is-cutout .project-preview {
