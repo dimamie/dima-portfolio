@@ -317,7 +317,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 8px;
   text-decoration: none;
   cursor: default;
   flex: 0 1 auto;
@@ -328,7 +328,7 @@ main {
 }
 
 .projects-row .project-item--meditation .project-name-soon {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.2;
   opacity: 0.4;
 }
