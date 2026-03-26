@@ -92,7 +92,7 @@ html {
 .toc-groups {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 40px;
 }
 
 .toc-group {
@@ -208,6 +208,10 @@ html {
 
     .header-sidebar-area {
         flex: 0 0 240px;
+    }
+
+    .toc-groups {
+        gap: 32px;
     }
 
     .toc-group {
