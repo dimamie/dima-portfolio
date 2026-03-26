@@ -92,7 +92,7 @@ html {
 .toc-groups {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 4px;
 }
 
 .toc-group {
@@ -208,10 +208,6 @@ html {
 
     .header-sidebar-area {
         flex: 0 0 240px;
-    }
-
-    .toc-groups {
-        gap: 32px;
     }
 
     .toc-group {
@@ -686,6 +682,10 @@ p.meditation-soon-title.is-heading {
 
     .project-sidebar .toc-group + .toc-group .toc-list {
         padding-left: 0;
+    }
+
+    .project-sidebar .toc-group:first-child .toc-list {
+        padding-right: 0;
     }
 
     .project-sidebar .toc-list li {
